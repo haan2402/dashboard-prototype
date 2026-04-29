@@ -29,7 +29,7 @@
     }
 
     .top-left h1 {
-        margin: 0;
+        margin-left: 60px;
         font-size: 20px;
     }
 
@@ -47,6 +47,11 @@
     .user-name {
         font-weight: bold;
         border-left: 1px solid white;
-        padding-left: 10px;
+        padding-left: 40px;
+        padding-right: 20px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
