@@ -43,5 +43,9 @@
         color: #39378E;
         font-weight: 600;
     }
+
+    .report-link:hover {
+        text-decoration: underline;
+    }
     
 </style>

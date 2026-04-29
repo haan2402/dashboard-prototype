@@ -1,6 +1,8 @@
 <script setup>
 import TopInfoBar from '@/components/TopInfoBar.vue';
+import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
+import Tips from '@/components/widgets/Tips.vue';
 </script>
 
 <!--vy för montörer-->
@@ -11,6 +13,14 @@ import TimeReport from '@/components/widgets/TimeReport.vue';
 
   <div class="column is-4">
     <TimeReport />
+  </div>
+
+  <div class="column is-4">
+    <SystemInfo />
+  </div>
+
+  <div class="column is-4">
+    <Tips />
   </div>
 
 </div>
