@@ -1,0 +1,18 @@
+@use "./variables" as *;
+
+@use "bulma/sass/utilities" with (
+    $primary: $primary,
+    $link: $time-report-text,
+    $warning: $time-report-progress,
+    $text: $text-primary,
+    $family-primary: '"Inter", sans-serif'
+);
+
+//importerar
+@forward "bulma/sass/base";
+@forward "bulma/sass/elements/box";
+@forward "bulma/sass/elements/button";
+@forward "bulma/sass/elements/progress";
+@forward "bulma/sass/elements/content";
+@forward "bulma/sass/elements/tag";
+@forward "bulma/sass/elements/icon";

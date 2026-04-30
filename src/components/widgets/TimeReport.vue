@@ -10,38 +10,40 @@
 
     <progress class="custom-progress progress" value="23" max="40">23/40</progress>
 
-    <a href="#" class="report-link has-text-weight-medium">Rapportera</a>
+    <a href="#" class="report-link">Rapportera</a>
   </div>
 </template>
 
 <script setup></script>
 
 <!--kompletterande styling-->
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/styles/_variables.scss" as*;
+
     .widget-title {
-        color: #4A4A4A;
+        color: $text-title;
     }
 
     .reported-hours {
-        color: #595959;
+        color: $text-primary;
     }
 
     .total-hours {
-        color: #595959;
+        color: $text-primary;
         font-weight: 500;
     }
 
     .custom-progress::-webkit-progress-value {
-        background-color: #FEAC31;
+        background-color: $time-report-progress;
     }
 
     .custom-progress::-moz-progress-bar {
-        background-color: #FEAC31;
+        background-color: $time-report-progress;
     }
 
     .report-link {
-        color: #39378E;
-        font-weight: 600;
+        color: $time-report-text;
+        font-weight: $font-weight-secondary;
     }
 
     .report-link:hover {

@@ -21,27 +21,28 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/styles/_variables.scss" as*;
+
     .system-card {
-        border-left: 8px solid #34565F;
+        border-left: 8px solid $system-primary;
     }
     .widget-title {
-        color: #4A4A4A;
+        color: $text-title;
     }
 
     .version-tag {
-        background-color: #D6F1F8;
-        color: #34565F;
+        background-color: $system-tag;
+        color: $system-primary;
+        font-weight: $font-weight-secondary;
         border-radius: 15px;
         display: inline-block;
         padding: 6px 12px;
-        font-weight: 600;
     }
 
     .link {
-        color: #34565F;
-        cursor: pointer;
-        font-weight: 600;
+        color: $system-primary;
+        font-weight: $font-weight-secondary;
     }
 
     .link:hover {

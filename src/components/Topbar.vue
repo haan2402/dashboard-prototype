@@ -17,14 +17,16 @@
     </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/styles/_variables.scss" as*;
+
     .top-menu {
         height: 60px;
-        background-color: #003D4F;
+        background-color: $primary;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: white;
+        color: $text-white;
         padding: 0 20px;
     }
 
@@ -40,13 +42,13 @@
     }
 
     .top-right a {
-        color: white;
+        color: $text-white;
         text-decoration: none;
     }
 
     .user-name {
         font-weight: bold;
-        border-left: 1px solid white;
+        border-left: 1px solid $surface-white;
         padding-left: 40px;
         padding-right: 20px;
         height: 60px;

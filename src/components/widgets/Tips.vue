@@ -20,20 +20,22 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/styles/_variables.scss" as*;
+
     .tips-card {
-        border-left: 8px solid #93136B;
+        border-left: 8px solid $tips-primary;
     }
     .widget-title {
-        color: #4A4A4A;
+        color: $text-title;
     }
 
     .version-tag {
-        background-color: #FFEFF7;
-        color: #93136B;
+        background-color: $tips-tag;
+        color: $tips-primary;
+        font-weight: $font-weight-secondary;
         border-radius: 15px;
         display: inline-block;
         padding: 6px 12px;
-        font-weight: 600;
     }   
 </style>
