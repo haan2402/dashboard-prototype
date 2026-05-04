@@ -1,5 +1,6 @@
 <script setup>
 import TopInfoBar from '@/components/TopInfoBar.vue';
+import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
 import Tips from '@/components/widgets/Tips.vue';
@@ -23,6 +24,10 @@ import Tips from '@/components/widgets/Tips.vue';
     <Tips />
   </div>
 
+
+  <div class="column is-4">
+    <RecentlyVisited />
+  </div>
 </div>
 </template>
 
