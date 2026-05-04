@@ -1,9 +1,13 @@
 <script setup>
 import TopInfoBar from '@/components/TopInfoBar.vue';
+import NoticeBoard from '@/components/widgets/NoticeBoard.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
-import Tips from '@/components/widgets/Tips.vue';
+
+const user = {
+  role: "montor"
+}
 </script>
 
 <!--vy för montörer-->
@@ -20,8 +24,9 @@ import Tips from '@/components/widgets/Tips.vue';
     <SystemInfo />
   </div>
 
+
   <div class="column is-4">
-    <Tips />
+    <NoticeBoard :isAdmin="user.role === 'admin'" />
   </div>
 
 
