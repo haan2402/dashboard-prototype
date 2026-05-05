@@ -1,9 +1,11 @@
 <script setup>
 import TopInfoBar from '@/components/TopInfoBar.vue';
+import AttentionRequired from '@/components/widgets/AttentionRequired.vue';
 import NoticeBoard from '@/components/widgets/NoticeBoard.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
+import { attentionItems } from '@/mockdata/atttentionItems';
 
 const user = {
   role: "montor"
@@ -18,6 +20,10 @@ const user = {
 
   <div class="column is-4">
     <TimeReport />
+  </div>
+
+  <div class="column is-4">
+    <AttentionRequired role="montor" />
   </div>
 
   <div class="column is-4">

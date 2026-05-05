@@ -1,5 +1,6 @@
 <script setup>
 import TopInfoBar from '@/components/TopInfoBar.vue';
+import AttentionRequired from '@/components/widgets/AttentionRequired.vue';
 import NoticeBoard from '@/components/widgets/NoticeBoard.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
@@ -18,7 +19,7 @@ const user = {
   <div class="columns is-multiline">
 
   <div class="column is-4">
-    <TimeReport />
+    <AttentionRequired role="admin" />
   </div>
 
   <div class="column is-4">
