@@ -1,7 +1,7 @@
 <!--widget föranslagstavlan-->
 <template>
   <div class="box board-card">
-    <h3 class="widget-title is-5 mb-4 has-text-weight-semibold">Anslagstavla</h3>
+    <h3 class="widget-title mb-4">Anslagstavla</h3>
 
     <!--visar alla inlägg-->
     <div v-for="post in paginatedPosts" :key="post.id" class="post">
@@ -130,6 +130,8 @@
 
     .widget-title {
         color: $text-title;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
     }
 
     .post {
@@ -147,7 +149,7 @@
     .post-title {
         font-weight: $font-weight-secondary;
         color: $text-title;
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .post-text {

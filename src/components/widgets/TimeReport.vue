@@ -1,14 +1,14 @@
 <!--widget för tidrapportering - enskild rapportering-->
 <template>
   <div class="time-report box">
-    <h3 class="widget-title is-5 mb-4 has-text-weight-semibold">Tidrapportering - denna vecka</h3>
+    <h3 class="widget-title is-3 mb-4">Tidrapportering - denna vecka</h3>
 
-    <div class="time-summary mb-4">
-        <span class="reported-hours is-size-3 has-text-weight-semibold">23h</span>
+    <div class="time-summary mb-2">
+        <span class="reported-hours is-size-5 has-text-weight-semibold">23h</span>
         <span class="total-hours is-size-6 ml-2">av 40h</span>
     </div>
 
-    <progress class="custom-progress progress" value="23" max="40">23/40</progress>
+    <progress class="custom-progress progress mb-4" value="23" max="40">23/40</progress>
 
     <a href="#" class="report-link">Rapportera</a>
   </div>
@@ -22,6 +22,8 @@
 
     .widget-title {
         color: $text-title;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
     }
 
     .reported-hours {
@@ -44,6 +46,7 @@
     .report-link {
         color: $time-report-text;
         font-weight: $font-weight-secondary;
+        font-size: 0.9em;
     }
 
     .report-link:hover {

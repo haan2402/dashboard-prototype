@@ -7,7 +7,6 @@ import Planning from '@/components/widgets/Planning.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
-import { attentionItems } from '@/mockdata/atttentionItems';
 
 const user = {
   role: "montor"

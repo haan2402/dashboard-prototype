@@ -128,6 +128,8 @@
 
     .widget-title {
         color: $text-title;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
     }
 
     .section-title {

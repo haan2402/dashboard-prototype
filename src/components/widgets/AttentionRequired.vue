@@ -1,7 +1,7 @@
 <!--widget för kräver uppmärksamhet-->
 <template>
     <div class="box attention-card">
-        <h3 class="attention-title is-5 mb-4 has-text-weight-semibold">Kräver uppmärksamhet</h3>
+        <h3 class="widget-title mb-4">Kräver uppmärksamhet</h3>
     
 
     <div v-for="item in items" :key="item.id" class="attention-item">
@@ -45,8 +45,10 @@
         background-color: $attention-primary;
     }
 
-    .attention-title {
+    .widget-title {
         color: $text-attention;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
     }
 
     .attention-item {
@@ -72,6 +74,7 @@
     .text {
         padding: 10px 10px 10px 0;
         color: $text-title;
+        font-size: 0.9em;
     }
     
 </style>

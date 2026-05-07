@@ -1,7 +1,7 @@
 <!--widget för senast besökta-->
 <template>
   <div class="box recent-card">
-    <h3 class="widget-title is-5 mb-4 has-text-weight-semibold">Senast besökta</h3>
+    <h3 class="widget-title mb-2">Senast besökta</h3>
 
     <div v-for="item in recentItems" :key="item.title" class="recent-item">
 
@@ -9,8 +9,8 @@
             <i :class="item.icon"></i>
         </div>
 
-        <div class="text">
-            <h4 class="item-title">{{ item.title }}</h4>
+        <div>
+            <p class="item-title">{{ item.title }}</p>
             <p class="item-time">{{ item.time }}</p>
         </div>
     </div>
@@ -27,8 +27,10 @@
 
     .widget-title {
         color: $text-title;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
         border-bottom: 2px solid $text-title;
-        padding-bottom: 10px;
+        padding-bottom: 15px;
     }
 
     .recent-item {
@@ -56,8 +58,9 @@
     }
 
     .item-title {
+        font-weight: $font-weight-secondary;
         color: $text-title;
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .item-time {

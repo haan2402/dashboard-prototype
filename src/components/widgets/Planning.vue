@@ -1,7 +1,7 @@
 <!--widget för min planering-->
 <template>
     <div class="box planning-card">
-        <h3 class="planning-title is-5 mb-4 has-text-weight-semibold">
+        <h3 class="widget-title mb-4">
             Min planering - <span class="week-number">Vecka {{ weekNumber }}</span>
         </h3>
 
@@ -175,9 +175,10 @@
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
 
-    .planning-title {
+    .widget-title {
         color: $text-title;
-        padding-bottom: 10px;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
     }
 
     .week-row {
@@ -273,9 +274,9 @@
     }
 
     .task-title {
-        font-size: 1em;
-        color: $text-primary;
-        font-weight: 600;
+        font-weight: $font-weight-secondary;
+        color: $text-title;
+        font-size: 0.9em;
     }
 
     .task-address {
@@ -297,7 +298,7 @@
         border: 1px solid $planner-primary;
         padding: 4px 8px;
         border-radius: 12px;
-        font-size: 1em;
+        font-size: 0.9em;
         font-weight: 600;
     }
 
@@ -306,5 +307,6 @@
         align-items: center;
         gap: 10px;
         color: $text-primary;
+        font-size: 0.9em;
     }
 </style>

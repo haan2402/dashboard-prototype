@@ -2,9 +2,7 @@
 <template>
     <div class="system-card box">
 
-        <div class="header">
-            <h3 class="widget-title is-5 mb-4 has-text-weight-semibold">Systeminfo</h3>
-        </div>
+            <h3 class="widget-title mb-4">Systeminfo</h3>
 
         <div class="version-tag mb-3">
             {{ version }}
@@ -13,6 +11,7 @@
         <p class="text">
             Vi har uppdaterat mbiz! <a class="link">Läs mer</a>
         </p>
+
     </div>
 </template>
 
@@ -27,8 +26,11 @@
     .system-card {
         border-left: 8px solid $system-primary;
     }
+
     .widget-title {
         color: $text-title;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
     }
 
     .version-tag {
@@ -38,6 +40,11 @@
         border-radius: 15px;
         display: inline-block;
         padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    .text {
+        font-size: 0.9em;
     }
 
     .link {

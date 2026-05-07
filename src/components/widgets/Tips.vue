@@ -2,9 +2,7 @@
 <template>
     <div class="tips-card box">
 
-        <div class="header">
-            <h3 class="widget-title is-5 mb-4 has-text-weight-semibold">Tips!</h3>
-        </div>
+            <h3 class="widget-title mb-3">Tips!</h3>
 
         <div class="version-tag mb-3">
             <p>Abonnemang</p>
@@ -26,8 +24,11 @@
     .tips-card {
         border-left: 8px solid $tips-primary;
     }
+
     .widget-title {
         color: $text-title;
+        font-size: $widget-title-size;
+        font-weight: $widget-title-weight;
     }
 
     .version-tag {
@@ -37,5 +38,10 @@
         border-radius: 15px;
         display: inline-block;
         padding: 6px 12px;
+        font-size: 0.9em;
     }   
+
+    .text {
+        font-size: 0.9em;
+    }
 </style>
