@@ -2,6 +2,7 @@
 import TopInfoBar from '@/components/TopInfoBar.vue';
 import AttentionRequired from '@/components/widgets/AttentionRequired.vue';
 import NoticeBoard from '@/components/widgets/NoticeBoard.vue';
+import Planning from '@/components/widgets/Planning.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
@@ -30,6 +31,9 @@ const user = {
     <SystemInfo />
   </div>
 
+  <div class="column is-4">
+    <Planning />
+  </div>
 
   <div class="column is-4">
     <NoticeBoard :isAdmin="user.role === 'admin'" />
