@@ -309,4 +309,26 @@
         color: $text-primary;
         font-size: 0.9em;
     }
+
+    @media (max-width: 1600px) {
+        .day-pill {
+            width: 45px;
+            padding: 4px 2px;
+        }
+
+        .day-name,
+        .day-date {
+            font-size: 0.85em;
+        }
+
+        .nav-btn {
+            font-size: 1.2em;
+            margin: 0 4px;
+        }
+
+        .day-pill.today:after {
+            width: 5px;
+            height: 5px;
+        }
+    }
 </style>

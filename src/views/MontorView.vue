@@ -17,37 +17,69 @@ const user = {
 <template>
   <TopInfoBar />
 
-  <div class="columns is-multiline">
+  <div class="dashboard-layout">
 
-  <div class="column is-4">
-    <TimeReport />
-  </div>
+    <div class="dashboard-column">
+      <div class="widget">
+        <TimeReport />
+      </div>
 
-  <div class="column is-4">
-    <AttentionRequired role="montor" />
-  </div>
+      <div class="widget">
+        <Planning />
+      </div>
 
-  <div class="column is-4">
-    <SystemInfo />
-  </div>
+      <div class="widget">
+        <RecentlyVisited />
+      </div>
+    </div>
 
-  <div class="column is-4">
-    <Planning />
-  </div>
+    <div class="dashboard-column">
+      <div class="widget">
+        <AttentionRequired role="montor" />
+      </div>
 
-  <div class="column is-4">
-    <AssignedToMe />
-  </div>
+      <div class="widget">
+        <AssignedToMe />
+      </div>
+    </div>
 
-  <div class="column is-4">
-    <NoticeBoard :isAdmin="user.role === 'admin'" />
-  </div>
+    <div class="dashboard-column">
+      <div class="widget">
+        <SystemInfo />
+      </div>
 
-
-  <div class="column is-4">
-    <RecentlyVisited />
+      <div class="widget">
+        <NoticeBoard :isAdmin="user.role === 'admin'" />
+      </div>
   </div>
 </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .dashboard-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  
+  @media (max-width: 1024px) {
+    .dashboard-layout {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-layout {
+      grid-template-columns: 1fr;
+    }    
+  }
+
+</style>
