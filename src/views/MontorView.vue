@@ -1,5 +1,6 @@
 <script setup>
 import TopInfoBar from '@/components/TopInfoBar.vue';
+import AssignedToMe from '@/components/widgets/AssignedToMe.vue';
 import AttentionRequired from '@/components/widgets/AttentionRequired.vue';
 import NoticeBoard from '@/components/widgets/NoticeBoard.vue';
 import Planning from '@/components/widgets/Planning.vue';
@@ -33,6 +34,10 @@ const user = {
 
   <div class="column is-4">
     <Planning />
+  </div>
+
+  <div class="column is-4">
+    <AssignedToMe />
   </div>
 
   <div class="column is-4">
