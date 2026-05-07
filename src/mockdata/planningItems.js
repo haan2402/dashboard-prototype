@@ -43,7 +43,22 @@ export const planningItems = {
             }
         ],
         "tors": [],
-        "fre": []
+        "fre": [
+            {
+                task: "Skjutdörr varuhuset (12) - Checklista",
+                address: "Frögatan, Solna",
+                time: "07.30-10.00",
+                coworker: null,
+                icon: "fas fa-user"
+            },
+            {
+                task: "Månadskontroll (12)",
+                address: "Bergsvägen 5, Täby",
+                time: "11.00-14.00",
+                coworker: null,
+                icon: "fas fa-user"
+            }
+        ]
 
     }
 }
