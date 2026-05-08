@@ -1,6 +1,8 @@
 <script setup>
 import TopInfoBar from '@/components/TopInfoBar.vue';
 import AttentionRequired from '@/components/widgets/AttentionRequired.vue';
+import BillingChart from '@/components/widgets/BillingChart.vue';
+import LineChart from '@/components/widgets/LineChart.vue';
 import NoticeBoard from '@/components/widgets/NoticeBoard.vue';
 import Planning from '@/components/widgets/Planning.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
@@ -27,6 +29,10 @@ const user = {
       <div class="widget">
         <RecentlyVisited />
       </div>
+
+      <div class="widget">
+        <LineChart />
+      </div>
     </div>
 
     <div class="dashboard-column">
@@ -36,6 +42,10 @@ const user = {
 
       <div class="widget">
         <Planning />
+      </div>
+
+      <div class="widget">
+        <BillingChart />
       </div>
     </div>
 
