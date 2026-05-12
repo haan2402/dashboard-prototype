@@ -1,8 +1,7 @@
 <!--widget för graf-->
 <template>
-    <div class="box billing-card">
+    <div class="billing-card">
 
-        <h3 class="widget-title mb-4">Fakturering denna månad</h3>
         <span class="text-title mb-1">Januari - April 2026</span>
 
        <hr class="divider">
@@ -133,12 +132,6 @@
     .billing-card {
         display: flex;
         flex-direction: column;
-    }
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
     }
 
     .chart-wrapper {

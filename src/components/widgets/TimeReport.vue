@@ -1,7 +1,6 @@
 <!--widget för tidrapportering - enskild rapportering-->
 <template>
-  <div class="time-report box">
-    <h3 class="widget-title is-3 mb-4">Tidrapportering - denna vecka</h3>
+  <div class="time-report">
 
     <div class="time-summary mb-2">
         <span class="reported-hours is-size-5 has-text-weight-semibold">23h</span>
@@ -19,12 +18,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
-    }
 
     .reported-hours {
         color: $text-primary;

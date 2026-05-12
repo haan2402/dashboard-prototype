@@ -1,8 +1,6 @@
 <!--widget för systeminformation-->
 <template>
-    <div class="system-card box">
-
-            <h3 class="widget-title mb-4">Systeminfo</h3>
+    <div class="system-card">
 
         <div class="version-tag mb-3">
             {{ version }}
@@ -22,16 +20,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    .system-card {
-        border-left: 8px solid $system-primary;
-    }
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
-    }
 
     .version-tag {
         background-color: $system-tag;

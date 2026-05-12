@@ -1,10 +1,8 @@
 <!--widget för kräver uppmärksamhet-->
 <template>
-    <div class="box attention-card">
-        <h3 class="widget-title mb-4">Kräver uppmärksamhet</h3>
-    
+    <div class="attention-card">
 
-    <div v-for="item in items" :key="item.id" class="attention-item">
+    <div v-for="item in items" :key="item.id" class="attention-item mb-4">
 
         <!--vänster färgkant-->
         <div class="left-bar" :style="{backgroundColor: item.color}"></div>
@@ -35,6 +33,8 @@
     const items = computed(() => {
         return attentionItems[props.role] || [];
     });
+
+    
 </script>
 
 <!--kompletterande styling-->
@@ -45,19 +45,11 @@
         background-color: $attention-primary;
     }
 
-    .widget-title {
-        color: $text-attention;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
-    }
-
     .attention-item {
         display: flex;
         align-items: center;
         background-color: $surface-white;
-        margin-bottom: 15px;
         border-radius: 0 12px 12px 0;
-        overflow: hidden;
     }
 
     .left-bar {

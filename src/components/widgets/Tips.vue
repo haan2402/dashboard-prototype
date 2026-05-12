@@ -1,8 +1,6 @@
 <!--widget för tips om abonnemang-->
 <template>
-    <div class="tips-card box">
-
-            <h3 class="widget-title mb-3">Tips!</h3>
+    <div class="tips-card">
 
         <div class="version-tag mb-3">
             <p>Abonnemang</p>
@@ -20,16 +18,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    .tips-card {
-        border-left: 8px solid $tips-primary;
-    }
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
-    }
 
     .version-tag {
         background-color: $tips-tag;

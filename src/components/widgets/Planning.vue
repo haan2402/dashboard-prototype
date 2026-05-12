@@ -1,9 +1,8 @@
 <!--widget för min planering-->
 <template>
-    <div class="box planning-card">
-        <h3 class="widget-title mb-4">
-            Min planering - <span class="week-number">Vecka {{ weekNumber }}</span>
-        </h3>
+    <div class="planning-card">
+        
+        <div class="planning-data mb-3">Vecka {{ weekNumber }}</div>
 
         <!--visar rad med knappar för att byta vecka samt veckans datum-->
         <div class="week-row mb-5">
@@ -175,9 +174,9 @@
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
 
-    .widget-title {
+    .planning-data {
         color: $text-title;
-        font-size: $widget-title-size;
+        font-size: 1.1em;
         font-weight: $widget-title-weight;
     }
 

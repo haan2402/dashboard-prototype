@@ -1,7 +1,6 @@
 <!--widget för senast besökta-->
 <template>
-  <div class="box recent-card">
-    <h3 class="widget-title mb-2">Senast besökta</h3>
+  <div class="recent-card">
 
     <div v-for="item in recentItems" :key="item.title" class="recent-item">
 
@@ -24,14 +23,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
-        border-bottom: 2px solid $text-title;
-        padding-bottom: 15px;
-    }
 
     .recent-item {
         display: flex;

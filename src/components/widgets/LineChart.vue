@@ -1,9 +1,8 @@
 <!--widget för linjediagram-->
 <template>
-    <div class="box line-card">
+    <div class="line-card">
 
         <!--rubrik-->
-        <h3 class="widget-title mb-4">Debiteringsgrad per månad</h3>
         <span class="text-title mb-1">Januari - April 2026</span>
         
         <hr class="divider">
@@ -85,12 +84,6 @@
     .chart-card {
         display: flex;
         flex-direction: column;
-    }
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
     }
 
     .divider {

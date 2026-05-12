@@ -7,8 +7,9 @@ import NoticeBoard from '@/components/widgets/NoticeBoard.vue';
 import Planning from '@/components/widgets/Planning.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
-import TimeReport from '@/components/widgets/TimeReport.vue';
 import Tips from '@/components/widgets/Tips.vue';
+import DashboardWidget from '@/components/DashboardWidget.vue';
+import { widgetRegistry } from '@/components/widgets/widgetRegistry';
 
 const user = {
   role: "admin"
@@ -23,39 +24,55 @@ const user = {
 
     <div class="dashboard-column">
       <div class="widget">
-        <AttentionRequired role="admin" />
-      </div>
+      <DashboardWidget :title="widgetRegistry.attention.title" :color="widgetRegistry.attention.background" :textColor="widgetRegistry.attention.color">
+        <AttentionRequired role="admin" :is="widgetRegistry.attention.component" />
+      </DashboardWidget>
+     </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.recently.title">
         <RecentlyVisited />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.line.title">
         <LineChart />
+        </DashboardWidget>
       </div>
     </div>
 
     <div class="dashboard-column">
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.tips.title" :accent="widgetRegistry.tips.accent">
         <Tips />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.planning.title">
         <Planning />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.billing.title">
         <BillingChart />
+        </DashboardWidget>
       </div>
     </div>
 
     <div class="dashboard-column">
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.system.title" :accent="widgetRegistry.system.accent">
         <SystemInfo />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.notice.title">
         <NoticeBoard :isAdmin="user.role === 'admin'" />
+        </DashboardWidget>
       </div>
     </div>
 

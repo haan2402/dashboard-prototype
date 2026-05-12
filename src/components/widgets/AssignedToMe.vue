@@ -1,8 +1,6 @@
 <!--widget för tilldelat till mig-->
 <template>
-    <div class="box assigned-card">
-
-        <h3 class="widget-title">Tilldelat mig</h3>
+    <div class="assigned-card">
 
         <!--försenade-->
         <div class="section-title">Försenade</div>
@@ -125,12 +123,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
-    }
 
     .section-title {
         color: $text-title;

@@ -1,7 +1,6 @@
 <!--widget föranslagstavlan-->
 <template>
-  <div class="box board-card">
-    <h3 class="widget-title mb-4">Anslagstavla</h3>
+  <div class="board-card">
 
     <!--visar alla inlägg-->
     <div v-for="post in paginatedPosts" :key="post.id" class="post">
@@ -127,12 +126,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    .widget-title {
-        color: $text-title;
-        font-size: $widget-title-size;
-        font-weight: $widget-title-weight;
-    }
 
     .post {
         padding: 12px 0;
