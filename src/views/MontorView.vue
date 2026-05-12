@@ -1,4 +1,5 @@
 <script setup>
+import DashboardWidget from '@/components/DashboardWidget.vue';
 import TopInfoBar from '@/components/TopInfoBar.vue';
 import AssignedToMe from '@/components/widgets/AssignedToMe.vue';
 import AttentionRequired from '@/components/widgets/AttentionRequired.vue';
@@ -7,6 +8,7 @@ import Planning from '@/components/widgets/Planning.vue';
 import RecentlyVisited from '@/components/widgets/RecentlyVisited.vue';
 import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
+import { widgetRegistry } from '@/components/widgets/widgetRegistry';
 
 const user = {
   role: "montor"
@@ -21,35 +23,49 @@ const user = {
 
     <div class="dashboard-column">
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.time.title">
         <TimeReport />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.planning.title">
         <Planning />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.recently.title">
         <RecentlyVisited />
+        </DashboardWidget>
       </div>
     </div>
 
     <div class="dashboard-column">
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.attention.title" :color="widgetRegistry.attention.background" :textColor="widgetRegistry.attention.color">
         <AttentionRequired role="montor" />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.assigned.title">
         <AssignedToMe />
+        </DashboardWidget>
       </div>
     </div>
 
     <div class="dashboard-column">
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.system.title" :accent="widgetRegistry.system.accent">
         <SystemInfo />
+        </DashboardWidget>
       </div>
 
       <div class="widget">
+        <DashboardWidget :title="widgetRegistry.notice.title">
         <NoticeBoard :isAdmin="user.role === 'admin'" />
+        </DashboardWidget>
       </div>
   </div>
 </div>
