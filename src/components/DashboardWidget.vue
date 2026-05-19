@@ -64,6 +64,9 @@
         border-left: 8px solid var(--widget-accent);
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%
     }
 
     .widget-header {
