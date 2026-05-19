@@ -18,6 +18,7 @@ const user = { role: "admin" }
 const isEditing = ref(false)
 const isMobile = ref(false)
 const layout = ref([])
+const showWidgets = ref(false)
 
 //koppling mellan namn och komponenten
 const widgetMaps = {
@@ -30,6 +31,14 @@ const widgetMaps = {
   system: SystemInfo,
   notice: NoticeBoard
 }
+
+const availableWidgets = [
+  { type: 'attention', title: 'Kräver uppmärksamhet', description: 'Uppgifter som kräver uppmärksamhet' },
+  { type: 'recently', title: 'Senast besökta', description: 'Anläggningar och dokument' },
+  { type: 'planning', title: 'Planering', description: 'Veckovy med arbetsplanering' },
+  { type: 'line', title: 'Debiteringsgrad', description: 'Linjediagram över debiteringsfrekvens' },
+  { type: 'billing', title: 'Fakturering', description: 'Donut-diagram över fakturering' },
+]
 
 //standard layout, används om ingen sparad layout finns, eller när layout återställs 
 const defaultLayout = [
@@ -79,6 +88,30 @@ function resetLayout () {
   localStorage.removeItem('dashboard-layout')
   localStorage.removeItem('layout-version')
 }
+
+//lägger till en ny widget i layouten
+function addWidget(type) {
+  const exists = layout.value.some(item => item.i === type)
+
+  if(exists) return
+
+  //hittar längst ner i layouten och placerar widget där
+  const maxY = Math.max(...layout.value.map(item => item.y + item.h), 0)
+
+  layout.value.push({x: 0, y: maxY, w: 4, h: 5, i: type, type, static: false})
+
+  showWidgets.value = false
+}
+
+//tar bort en widget baserat på id
+function removeWidget(id) {
+  layout.value = layout.value.filter(item => item.i !== id)
+}
+
+//kontroll om widget redan finns i layouten, används för att inaktivera lägg till knappen i widgetbiblioteket 
+function widgetExists(type) {
+  return layout.value.some(item => item.i === type)
+}
 </script>
 
 <!--vy för admin/ekonomi-->
@@ -87,7 +120,7 @@ function resetLayout () {
     <TopInfoBar />
 
     <!--anpassa knapp (alltid synlig)-->
-    <div class="edit-toolbar">
+    <div v-if="!isMobile" class="edit-toolbar">
       <button class="edit-btn" :class="{active: isEditing}" @click="isEditing = !isEditing">
         {{ isEditing ? 'Avsluta' : 'Anpassa' }}
       </button>
@@ -137,8 +170,11 @@ function resetLayout () {
       :static="item.static"
     >
 
-    <!--för att tydligt visa låsta widgets i redigeringsläge-->
+    <!--för att tydligt visa låsta widgets i redigeringsläge, samt ta bort-knapp-->
     <div class="widget-wrapper" :class="{ locked: item.static  && isEditing, editing: isEditing && !item.static}">
+      <button v-if="isEditing && !item.static" class="delete-widget" @click="removeWidget(item.i)">
+        X
+      </button>
       <div v-if="isEditing && item.static" class="locked-overlay">
         Låst
       </div>
@@ -173,7 +209,6 @@ function resetLayout () {
       :role="user.role"
       :isAdmin="user.role === 'admin'"
     />
-
   </DashboardWidget>
   </div>
 </div>
@@ -181,6 +216,28 @@ function resetLayout () {
 <!--lägg till widget-->
 <div v-if="isEditing" class="add-widget-card" @click="showWidgets = true">
   + Lägg till widget
+</div>
+
+<div v-if="showWidgets" class="widget-library">
+  <div class="library-widget">
+    <div class="library-header">
+      <h3>Välj widget</h3>
+      <p>Klicka på en widget för att lägga till den.</p>
+      <button class="close-library" @click="showWidgets = false">
+        X
+      </button>
+    </div>
+
+    <div v-for="widget in availableWidgets" :key="widget.type" class="widget-option" :class="{ added: widgetExists(widget.type) }">
+      <div class="widget-option-content">
+        <h4>{{ widget.title }}</h4>
+        <p>{{ widget.description }}</p>
+      </div>
+      <button class="add-widget-btn" :disabled="widgetExists(widget.type)" @click="addWidget(widget.type)">
+        {{ widgetExists(widget.type) ? 'Tillagd' : 'Lägg till' }}
+      </button>
+    </div> 
+  </div>
 </div>
 </template>
 
@@ -285,6 +342,20 @@ function resetLayout () {
     z-index: 10;
   }
 
+  .delete-widget {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    background-color: #b91c1c;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 20;
+  }
+
   .add-widget-card {
     margin-top: 20px;
     height: 160px;
@@ -326,5 +397,90 @@ function resetLayout () {
 
   .vue-grid-item.resizing {
     opacity: 0.9;
+  }
+
+  /*widgetbibliotek*/
+  .widget-library {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  .library-widget {
+    width: 600px;
+    max-width: 90%;
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+  }
+
+  .library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .close-library {
+    border: none;
+    background: none;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+
+  .widget-option {
+    border: 1px solid #dcdcdc;
+    background-color: #f7f7f7;
+    padding: 16px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: 0.2s;
+  }
+
+  .widget-option:hover {
+    border-color: #40b8af;
+    background: #eefcf9;
+  }
+
+  .widget-option.added{
+    opacity: 0.6;
+    background: #ececec;
+  }
+
+  .widget-option h4 {
+    margin-bottom: 4px;
+    font-size: 1em;
+  }
+
+  .widget-option p {
+    font-size: 0.9em;
+    color: #4a4a4a;
+    line-height: 1.4;
+  }
+
+  .add-widget-btn {
+    border: none;
+    background-color: #003D4F;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    min-width: 90px;
+  }
+
+  .add-widget-btn:disabled {
+    background: #008A40;
+    opacity: 1;
+    color: white;
+    cursor: not-allowed;
   }
 </style>
