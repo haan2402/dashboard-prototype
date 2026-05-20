@@ -5,11 +5,11 @@
 <template>
     <div class="info-bar mb-4">
         
-        <div class="level-left left-group">
-            <div class="company-box box">
+        <div class="level-left left-group  is-flex is-align-items-cente">
+            <div class="company-box box is-flex is-align-items-center">
                 Demoföretaget
 
-                <span class="avatar tag is-rounded">HA</span>
+                <span class="avatar tag is-rounded is-flex is-justify-content-center is-align-items-cente">HA</span>
             </div>
 
             <div class="greeting">
@@ -19,16 +19,14 @@
         </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/styles/_variables.scss" as*;
     .company-box {
         position: relative;
-        display: flex;
-        align-items: center;
         gap: 10px;
         padding: 40px 50px 40px 50px;
-        color: #4A4A4A;
-        background-color: white;
-        font-weight: 500;
+        color: $text-title;
+        background-color: $text-white;
     }
 
     .avatar {
@@ -37,24 +35,19 @@
         right: -10px;
         width: 60px;
         height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-weight: 700;
-        background-color: #EBF2F4;
-        color: #4A4A4A;
+        font-size: 1.5em;
+        font-weight: $font-weight-secondary;
+        background-color: $secondary;
+        color: $text-title;
     }
 
     .left-group {
-        display: flex;
-        align-items: center;
         gap: 16px;
     }
 
     .greeting {
-        color: #4A4A4A;
-        font-size: 30px;
+        color: $text-title;
+        font-size: 1.6em;
     }
 
     @media screen and (max-width: 768px) {

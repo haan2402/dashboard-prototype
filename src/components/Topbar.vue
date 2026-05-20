@@ -4,15 +4,15 @@
 
 <!--topp-meny-->
 <template>
-    <header class="top-menu">
+    <header class="top-menu is-flex is-justify-content-space-between is-align-items-center p-5">
       <div class="top-left">
-        <h1>mbiz</h1>
+        <h1 class="ml-6">mbiz</h1>
       </div>
 
-      <div class="top-right">
+      <div class="top-right is-flex is-align-items-center">
         <RouterLink to="/montor">Montör</RouterLink>
         <RouterLink to="/admin">Admin</RouterLink>
-        <span class="user-name">Hanna</span>
+        <span class="user-name is-flex is-justify-content-center is-align-items-center">Hanna</span>
       </div>
     </header>
 </template>
@@ -23,22 +23,15 @@
     .top-menu {
         height: 60px;
         background-color: $primary;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         color: $text-white;
-        padding: 0 20px;
     }
 
     .top-left h1 {
-        margin-left: 60px;
-        font-size: 20px;
+        font-size: 1.3em;
     }
 
     .top-right {
-        display: flex;
         gap: 24px;
-        align-items: center;
     }
 
     .top-right a {
@@ -47,13 +40,9 @@
     }
 
     .user-name {
-        font-weight: bold;
         border-left: 1px solid $surface-white;
         padding-left: 40px;
         padding-right: 20px;
         height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 </style>

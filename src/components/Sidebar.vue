@@ -17,7 +17,7 @@
 
 <!--sido-menyn-->
 <template>
-      <aside class="sidebar">
+      <aside class="sidebar is-flex is-flex-direction-column">
 
         <div class="siderbar-section-title">START</div>
           <a class="sidebar-item active">
@@ -29,7 +29,7 @@
 
           <div class="siderbar-section-title">APPLIKATIONER</div>
         
-        <a v-for="item in menuItems.slice(1)" :key="item.text" class="sidebar-item">
+        <a v-for="item in menuItems.slice(1)" :key="item.text" class="sidebar-item p-3">
             <span class="icon">
                 <i :class="item.icon"></i>
             </span>
@@ -53,17 +53,13 @@
         width: 240px;
         background-color: $surface-white;
         padding: 20px 0;
-        display: flex;
-        flex-direction: column;
         box-shadow: 6px 0 18px rgba(0,0,0,0.1);
         position: relative;
         z-index: 10;
     }
 
     .sidebar-item {
-        padding: 10px;
         border-radius: 6px;
-        cursor: pointer;
         color: $text-primary;
     }
 
