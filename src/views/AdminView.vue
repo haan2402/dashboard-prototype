@@ -15,6 +15,10 @@ import {GridLayout, GridItem } from 'vue-grid-layout-v3';
 
 const user = { role: "admin" }
 
+//för att kunna spara olika layouter för olika vyer, för att kunna spara olika vyer
+const storageKey = `dashboard-layout-${user.role}`
+const versionKey = `version-layout-${user.role}`
+
 const isEditing = ref(false)
 const isMobile = ref(false)
 const layout = ref([])
@@ -45,9 +49,9 @@ const defaultLayout = [
   {x: 0, y: 0, w: 4, h: 10, i: 'attention', type: 'attention', static: false},
   {x: 4, y: 0, w: 4, h: 4, i: 'tips', type: 'tips', static: true},
   {x: 8, y: 0, w: 4, h: 4, i: 'system', type: 'system', static: true},
-  {x: 0, y: 4, w: 4, h: 8,i: 'recently', type: 'recently', static: false},
-  {x: 4, y: 4, w: 4, h: 6, i: 'planning', type: 'planning', static: false},
-  {x: 8, y: 4, w: 4, h: 9,i: 'notice', type: 'notice', static: true},
+  {x: 0, y: 4, w: 4, h: 8, i: 'recently', type: 'recently', static: false},
+  {x: 4, y: 4, w: 4, h: 8, i: 'planning', type: 'planning', static: false},
+  {x: 8, y: 4, w: 4, h: 9, i: 'notice', type: 'notice', static: true},
   {x: 0, y: 10, w: 4, h: 9, i: 'line', type: 'line', static: false},
   {x: 4, y: 14, w: 4, h: 12, i: 'billing', type: 'billing', static: false},
 ]
@@ -65,11 +69,13 @@ onMounted(() => {
   checkScreen()
   window.addEventListener('resize', checkScreen)
 
-  const savedVersion = localStorage.getItem('layout-version');
-  const saved = localStorage.getItem('dashboard-layout');
+  const savedVersion = localStorage.getItem(versionKey);
+  const saved = localStorage.getItem(storageKey);
 
   if(saved && savedVersion === layoutVersion) {
-    layout.value = JSON.parse(saved);
+    const parsedLayout = JSON.parse(saved);
+
+    layout.value = parsedLayout.filter(item => widgetMaps[item.type]);
   } else {
     layout.value = defaultLayout.map(item => ({...item}));
   }
@@ -77,16 +83,16 @@ onMounted(() => {
 
 //sparar användarens nuvarande layout i localStorage, och avslutar redigeringsläget 
 function saveLayout () {
-  localStorage.setItem('dashboard-layout', JSON.stringify(layout.value));
-  localStorage.setItem('layout-version', layoutVersion);
+  localStorage.setItem(storageKey, JSON.stringify(layout.value));
+  localStorage.setItem(versionKey, layoutVersion);
   isEditing.value = false;
 }
 
 //återställer dashboarden till standardlayout och tar bort sparad layout från localStorage 
 function resetLayout () {
   layout.value = defaultLayout.map(item => ({...item}));
-  localStorage.removeItem('dashboard-layout')
-  localStorage.removeItem('layout-version')
+  localStorage.removeItem(storageKey)
+  localStorage.removeItem(versionKey)
 }
 
 //lägger till en ny widget i layouten

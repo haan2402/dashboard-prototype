@@ -51,8 +51,7 @@ export const widgetRegistry = {
     },
     time: {
         component: TimeReport,
-        title: "Tidrapportering",
-        mobileBadge: "fas fa-exclamation-triangle"
+        title: "Tidrapportering"
     },
     tips: {
         component: Tips,
