@@ -2,13 +2,13 @@
 <template>
     <div class="attention-card">
 
-    <div v-for="item in items" :key="item.id" class="attention-item mb-4">
+    <div v-for="item in items" :key="item.id" class="attention-item mb-4 is-flex is-align-items-center">
 
         <!--vänster färgkant-->
         <div class="left-bar" :style="{backgroundColor: item.color}"></div>
 
         <!--ikon-->
-        <div class="icon" :style="{color: item.color}">
+        <div class="icon p-1" :style="{color: item.color}">
             <i :class="item.icon"></i>
         </div>
 
@@ -46,8 +46,6 @@
     }
 
     .attention-item {
-        display: flex;
-        align-items: center;
         background-color: $surface-white;
         border-radius: 0 12px 12px 0;
     }
@@ -60,7 +58,6 @@
     .icon {
         margin-right: 8px;
         margin-left: 10px;
-        padding: 10px;
     }
 
     .text {

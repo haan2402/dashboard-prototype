@@ -1,6 +1,6 @@
 <!--widget för linjediagram-->
 <template>
-    <div class="line-card">
+    <div class="line-card is-flex is-flex-direction-column">
 
         <!--rubrik-->
         <span class="text-title mb-1">Januari - April 2026</span>
@@ -79,12 +79,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    
-    .chart-card {
-        display: flex;
-        flex-direction: column;
-    }
 
     .divider {
         margin: 12px 0;

@@ -1,30 +1,30 @@
 <!--widget för graf-->
 <template>
-    <div class="billing-card">
+    <div class="is-flex is-flex-direction-column">
 
         <span class="text-title mb-1">Januari - April 2026</span>
 
        <hr class="divider">
         
         <!--graf-->
-        <div class="chart-wrapper">
+        <div class="is-flex is-justify-content-center">
             <apexchart type="donut" height="260" :options="chartOptions" :series="series" />
         </div>
 
         <!--information-->
-        <div class="legend">
+        <div class="legend is-flex is-flex-direction-column">
 
-            <div class="legend-item">
+            <div class="legend-item is-flex is-align-items-center mt-1">
                 <span class="dot billed"></span>
                 Fakturerat
             </div>
 
-            <div class="legend-item">
+            <div class="legend-item is-flex is-align-items-center mt-1">
                 <span class="dot unbilled"></span>
                 Ej fakturerat
             </div>
 
-            <div class="legend-item">
+            <div class="legend-item is-flex is-align-items-center mt-1">
                 <span class="dot ongoing"></span>
                 Pågående
             </div>
@@ -33,7 +33,7 @@
         <hr class="divider">
 
         <!--total-->
-        <div class="total-section">
+        <div class="is-flex is-justify-content-space-between">
             <div class="total-label">
                 Totalt denna månad
             </div>
@@ -128,17 +128,6 @@
 <!--kompletterande styling-->
 <style scoped lang="scss">
 @use "@/assets/styles/_variables.scss" as*;
-
-    .billing-card {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .chart-wrapper {
-        display: flex;
-        justify-content: center;
-    }
-
     .divider {
         margin: 12px 0;
         border: none;
@@ -147,18 +136,13 @@
     }
 
     .legend {
-        display: flex;
-        flex-direction: column;
         gap: 8px;
         margin-top: 10px;
     }
 
     .legend-item {
-        display: flex;
-        align-items: center;
         gap: 10px;
-        font-size: 0.95em;
-        margin-top: 5px;
+        font-size: 0.95em;;
         color: $text-title;
     }
 
@@ -169,20 +153,15 @@
     }
 
     .billed {
-        background-color: #008A40;
+        background-color: $success;
     }
 
     .unbilled {
-        background-color: #FFE15C;
+        background-color: $billing-chart-yellow;
     }
 
     .ongoing {
-        background-color: #AAD6FF;
-    }
-
-    .total-section {
-        display: flex;
-        justify-content: space-between;
+        background-color: $billing-chart-blue;
     }
 
     .total-label {

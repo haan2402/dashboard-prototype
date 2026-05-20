@@ -3,15 +3,15 @@
     <div class="assigned-card">
 
         <!--försenade-->
-        <div class="section-title">Försenade</div>
+        <div class="section-title p-1">Försenade</div>
 
-        <div v-for="item in paginatedOverdue" :key="item.id" class="task-item">
+        <div v-for="item in paginatedOverdue" :key="item.id" class="task-item is-flex">
 
-            <div class="icon-circle">
+            <div class="icon-circle is-flex is-justify-content-center is-align-items-center">
             <i :class="item.icon"></i>
             </div>
 
-            <div class="task-info">
+            <div class="task-info is-flex is-flex-direction-column is-justify-content-center">
             <div class="task-title mt-1">{{ item.title }}</div>
             <div class="task-place mt-1">{{ item.place }}</div>
             <div class="task-date mt-1">{{ formatDate(item.date) }}</div>
@@ -21,19 +21,19 @@
         <!--inget slutdatum-->
         <div class="section-title mt-4">Inget slutdatum</div>
 
-        <div v-for="item in paginatedNoDeadline" :key="item.id" class="task-item">
+        <div v-for="item in paginatedNoDeadline" :key="item.id" class="task-item is-flex">
 
-            <div class="icon-circle">
+            <div class="icon-circle is-flex is-justify-content-center is-align-items-center">
             <i :class="item.icon"></i>
             </div>
 
-            <div class="task-info">
+            <div class="task-info is-flex is-flex-direction-column is-justify-content-center">
             <div class="task-title">{{ item.title }}</div>
             <div class="task-place">{{ item.place }}</div>
             </div>
         </div>
 
-        <div class="button-controls">
+        <div class="button-controls is-flex is-justify-content-flex-end mt-4">
             <button class="page-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
 
             <button v-for="page in totalPages" :key="page" class="page-btn" :class="{active: currentPage === page}" @click="currentPage = page">
@@ -128,20 +128,12 @@
         color: $text-title;
         border-bottom: 2px solid #40B8AF;
         font-size: 1em;
-        padding: 5px;
     }
 
     .task-item {
-        display: flex;
         gap: 20px;
         padding: 15px 0;
         border-bottom: 1px solid $text-title;
-    }
-
-    .task-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
 
     .task-title {
@@ -166,9 +158,6 @@
         height: 50px;
         background-color: $secondary;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         color: $primary;
         flex-shrink: 0;
     }
@@ -178,10 +167,7 @@
     }
     
     .button-controls {
-        display: flex;
-        justify-content: flex-end;
         gap: 15px;
-        margin-top: 30px;
     }
 
     .page-btn {

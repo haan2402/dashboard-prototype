@@ -3,13 +3,13 @@
   <div class="board-card">
 
     <!--visar alla inlägg-->
-    <div v-for="post in paginatedPosts" :key="post.id" class="post">
-        <div class="post-header">
+    <div v-for="post in paginatedPosts" :key="post.id" class="post mb-4">
+        <div class="post-header is-flex is-justify-content-space-between is-align-items-center">
         <div class="post-title">{{ post.title }}</div>
         <div class="post-date">{{ formatDate(post.date) }}</div>
         </div>
 
-        <div class="post-text">{{ post.text }}</div>
+        <div class="post-text mt-1">{{ post.text }}</div>
     </div>
 
     <!--endast "admin" kan skriva nytt inlägg-->
@@ -18,7 +18,7 @@
     </button>
 
     <div v-if="showForm && isAdmin" class="new-post">
-        <div class="form-header">
+        <div class="form-header is-flex is-justify-content-space-between is-align-items-center mb-2">
             <span>Nytt inlägg</span>
             <button class="close-btn" @click="showForm = false">x</button>
         </div>
@@ -29,7 +29,7 @@
         <button class="button button-add is-small mt-4" @click="addPost">Lägg till</button>
     </div>
 
-    <div class="button-controls">
+    <div class="button-controls is-flex is-justify-content-flex-end mt-6">
         <button class="page-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
 
         <button v-for="page in totalPages" :key="page" class="page-btn" :class="{active: currentPage === page}" @click="currentPage = page">
@@ -130,13 +130,6 @@
     .post {
         padding: 12px 0;
         border-bottom: 1px solid $text-title;
-        margin-bottom: 15px;
-    }
-
-    .post-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
     .post-title {
@@ -148,7 +141,6 @@
     .post-text {
         color: $text-primary;
         font-size: 0.9em;
-        margin-top: 5px;
     }
 
     .post-date {
@@ -171,10 +163,7 @@
     }
 
     .button-controls {
-        display: flex;
-        justify-content: flex-end;
         gap: 15px;
-        margin-top: 30px;
     }
 
     .page-btn {
@@ -195,10 +184,6 @@
     }
 
     .form-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
         font-weight: $font-weight-secondary;
     }
 

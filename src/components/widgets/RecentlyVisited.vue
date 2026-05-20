@@ -2,9 +2,9 @@
 <template>
   <div class="recent-card">
 
-    <div v-for="item in recentItems" :key="item.title" class="recent-item">
+    <div v-for="item in recentItems" :key="item.title" class="recent-item is-flex is-align-items-center">
 
-        <div class="icon-circle">
+        <div class="icon-circle is-flex is-justify-content-center is-align-items-center">
             <i :class="item.icon"></i>
         </div>
 
@@ -25,8 +25,6 @@
 @use "@/assets/styles/_variables.scss" as*;
 
     .recent-item {
-        display: flex;
-        align-items: center;
         gap: 20px;
         padding: 15px 0;
         border-bottom: 1px solid $text-title;
@@ -37,9 +35,6 @@
         height: 50px;
         background-color: $secondary;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         color: $primary;
         flex-shrink: 0;
     }

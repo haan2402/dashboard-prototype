@@ -5,7 +5,7 @@
         <div class="planning-data mb-3">Vecka {{ weekNumber }}</div>
 
         <!--visar rad med knappar för att byta vecka samt veckans datum-->
-        <div class="week-row mb-5">
+        <div class="week-row mb-5 is-flex is-justify-content-space-between is-align-items-center">
             <button class="nav-btn is-small is-light" @click="previousWeek">&lt;</button>
 
             <div v-for="(day, index) in weekDays" 
@@ -31,7 +31,7 @@
                 Inget planerat denna dag
             </div>
 
-            <div v-for="(task, i) in selectedDayData.tasks" :key="i" class="task-item">
+            <div v-for="(task, i) in selectedDayData.tasks" :key="i" class="task-item is-flex">
 
                 <div class="left-bar"></div>
 
@@ -39,8 +39,8 @@
                 <div class="task-title">{{ task.task }}</div>
                 <div class="task-address">{{ task.address }}</div>
 
-                <div class="task-footer">
-                    <div class="task-coworker">
+                <div class="task-footer is-flex is-justify-content-space-between is-align-items-center mt-1">
+                    <div class="task-coworker is-flex is-align-items-center">
                     <i :class="task.icon"></i>
                     {{ task.coworker || "Ingen kollega"}}
                     </div>
@@ -180,12 +180,6 @@
         font-weight: $widget-title-weight;
     }
 
-    .week-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
     .nav-btn {
         font-size: 1.5em;
         padding: 6px 10px;
@@ -253,7 +247,6 @@
     }
 
     .task-item {
-        display: flex;
         background-color: $surface-white;
         margin-top: 10px;
         border-radius: 0 10px 10px 0;
@@ -284,14 +277,6 @@
         
     }
 
-    .task-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 8px;
-
-    }
-
     .task-time {
         background-color: $secondary;
         border: 1px solid $planner-primary;
@@ -302,8 +287,6 @@
     }
 
     .task-coworker {
-        display: flex;
-        align-items: center;
         gap: 10px;
         color: $text-primary;
         font-size: 0.9em;

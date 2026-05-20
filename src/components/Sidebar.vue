@@ -75,9 +75,9 @@
         margin-right: 5px;
     }
 
-    @media screen and (max-width: 768px) {
+    @media(max-width: 768px) {
         .sidebar {
-            display: none;
+            display: none !important;
         }
     }
 </style>
