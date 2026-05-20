@@ -1,13 +1,13 @@
 <!--komponent för att kunna fälla ihop widget i mobilläge, wrappas runt komponenter i vyn-->
 <template>
-    <div class="box dashboard-widget" 
+    <div class="box dashboard-widget is-flex is-flex-direction-column" 
         :style="{
             '--widget-color': props.color, 
             '--widget-text': props.textColor,
             '--widget-accent': props.accent}">
 
         <!--header-->
-          <button class="widget-header" @click="toggleWidget">
+          <button class="widget-header is-flex is-justify-content-space-between is-align-items-center pb-4" @click="toggleWidget">
             <h3 class="widget-header-title">{{ title }}</h3>
             <span class="arrow" :class="{open: isOpen}">&gt;</span>
           </button>
@@ -64,21 +64,14 @@
         border-left: 8px solid var(--widget-accent);
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
         height: 100%
     }
 
     .widget-header {
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         background: none;
         border: none;
         cursor: pointer;
-        text-align: left;
-        padding-bottom: 20px;
     }
 
     .widget-header-title {

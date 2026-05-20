@@ -116,11 +116,11 @@ function widgetExists(type) {
 
 <!--vy för admin/ekonomi-->
 <template>
-  <div class="top-section">
+  <div class="top-section is-flex is-justify-content-space-between is-align-items-center">
     <TopInfoBar />
 
-    <!--anpassa knapp (alltid synlig)-->
-    <div v-if="!isMobile" class="edit-toolbar">
+    <!--anpassa knapp (alltid synlig - ej på mobil)-->
+    <div v-if="!isMobile" class="edit-toolbar is-flex">
       <button class="edit-btn" :class="{active: isEditing}" @click="isEditing = !isEditing">
         {{ isEditing ? 'Avsluta' : 'Anpassa' }}
       </button>
@@ -128,13 +128,13 @@ function widgetExists(type) {
   </div>
 
     <!--redigeringsbanner-->
-  <div v-if="isEditing" class="edit-banner">
+  <div v-if="isEditing && !isMobile" class="edit-banner is-flex is-justify-content-space-between mb-5 p-5">
     <div class="edit-info">
       <h3>Redigeringsläge aktivt</h3>
       <p>Flytta, ändra storlek eller lägg till widgets. Vissa widgets är låsta och kan inte ändras.</p>
     </div>
 
-    <div class="edit-actions">
+    <div class="edit-actions is-flex">
     <button class="secondary-btn" @click="resetLayout">
       Återställ
     </button>
@@ -196,7 +196,7 @@ function widgetExists(type) {
 </GridLayout>
 
 <!--mobilvy-->
-<div v-else class="mobile-stack">
+<div v-else class="mobile-stack is-flex is-flex-direction-column">
   <div v-for="item in layout" :key="item.i">
     <DashboardWidget
       :title="widgetRegistry[item.type].title"
@@ -214,23 +214,29 @@ function widgetExists(type) {
 </div>
 
 <!--lägg till widget-->
-<div v-if="isEditing" class="add-widget-card" @click="showWidgets = true">
+<div v-if="isEditing && !isMobile" class="add-widget-card is-flex is-justify-content-center is-align-items-center mt-5" @click="showWidgets = true">
   + Lägg till widget
 </div>
 
-<div v-if="showWidgets" class="widget-library">
-  <div class="library-widget">
-    <div class="library-header">
-      <h3>Välj widget</h3>
-      <p>Klicka på en widget för att lägga till den.</p>
-      <button class="close-library" @click="showWidgets = false">
+<div v-if="showWidgets && !isMobile" class="widget-library is-flex is-justify-content-center is-align-items-center">
+  <div class="library-widget p-5">
+
+    <div class="library-header is-flex is-justify-content-space-between is-align-items-flex-start mb-5">
+      <div class="library-title">
+      <h3 class="mb-3">Välj widget</h3>
+      <p class="mb-2">Klicka på en widget för att lägga till den.</p>
+      </div>
+      <button class="close-library is-flex is-justify-content-center is-align-items-center" @click="showWidgets = false">
         X
       </button>
     </div>
 
-    <div v-for="widget in availableWidgets" :key="widget.type" class="widget-option" :class="{ added: widgetExists(widget.type) }">
+    <div v-for="widget in availableWidgets" 
+        :key="widget.type" 
+        class="widget-option is-flex is-justify-content-space-between is-align-items-center mb-3 p-4" 
+        :class="{ added: widgetExists(widget.type) }">
       <div class="widget-option-content">
-        <h4>{{ widget.title }}</h4>
+        <h4 class="mb-1">{{ widget.title }}</h4>
         <p>{{ widget.description }}</p>
       </div>
       <button class="add-widget-btn" :disabled="widgetExists(widget.type)" @click="addWidget(widget.type)">
@@ -241,28 +247,17 @@ function widgetExists(type) {
 </div>
 </template>
 
-<style scoped>
-  .top-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
+<style scoped lang="scss">
+@use "@/assets/styles/_variables.scss" as*;
   .mobile-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 15px;
   }
 
   /*styling redigeringsläge*/
   .edit-banner {
-    background-color: #D6F1F8;
-    border: 2px solid #002936;
+    background-color: $edit-banner-primary;
+    border: 2px solid $edit-banner-border;
     border-radius: 14px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
   }
 
   .edit-banner h3 {
@@ -270,7 +265,6 @@ function widgetExists(type) {
   }
 
   .edit-actions {
-    display: flex;
     gap: 12px;
   }
 
@@ -280,29 +274,24 @@ function widgetExists(type) {
     border: none;
     border-radius: 10px;
     padding: 8px 15px;
-    cursor: pointer;
-    font-weight: 600;
-    color: white;
+    font-weight: $widget-title-weight;
+    color: $surface-white;
   }
 
   .primary-btn {
-    background-color: #008A40;
+    background-color: $success;
   }
 
   .secondary-btn {
-    background-color: #f59e0b;
-  }
-
-  .edit-toolbar {
-    display: flex;
+    background-color: $time-report-progress;
   }
 
   .edit-btn {
-    background-color: #003D4F;
+    background-color: $primary;
   }
 
   .edit-btn.active {
-    background: #b91c1c;
+    background: $delete-primary;
   }
 
   .widget-wrapper {
@@ -320,14 +309,13 @@ function widgetExists(type) {
     content: "";
     position: absolute;
     inset: 0;
-    border: 2px dashed #40b8af;
+    border: 2px dashed $edit-border-color;
     border-radius: 16px;
     pointer-events: none;
   }
 
   .widget-wrapper.locked {
-    opacity: 0.75;
-    filter: grayscale();
+    opacity: 0.6;
   }
   
   .locked-overlay {
@@ -335,7 +323,7 @@ function widgetExists(type) {
     top: 10px;
     right: 10px;
     background: rgba(0,0,0,0.7);
-    color: white;
+    color: $surface-white;
     padding: 6px 10px;
     border-radius: 10px;
     font-size: 0.8em;
@@ -349,35 +337,114 @@ function widgetExists(type) {
     width: 28px;
     height: 28px;
     border-radius: 10px;
-    background-color: #b91c1c;
-    color: white;
-    font-weight: 600;
+    background-color: $delete-primary;
+    color: $surface-white;
+    font-weight: $widget-title-weight;
     cursor: pointer;
     z-index: 20;
   }
 
   .add-widget-card {
-    margin-top: 20px;
     height: 160px;
-    border: 2px dashed #c8c8c8;
-    background: #f7f7f7;
+    border: 2px dashed $add-widget-border;
+    background: $add-widget-primary;
     border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    font-weight: 600;
+    color: $text-title;
+    font-weight: $widget-title-weight;
     cursor: pointer;
     transition: 0.2s;
   }
 
   .add-widget-card:hover {
-    background: #efefef;
-    border-color: #40b8af;
-    color: #40b8af;
+    background: $add-widget-primary;
+    border-color: $edit-border-color;
+    color: $edit-border-color;
   }
 
-  .vue-grid-item {
+  /*widgetbibliotek*/
+  .widget-library {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+
+  .library-widget {
+    width: 600px;
+    max-width: 90%;
+    background: $text-white;
+    border-radius: 18px;
+  }
+
+  .library-header {
+    gap: 20px;
+    border-bottom: 1px solid $text-title;
+  }
+
+  .library-title h3 {
+    font-size: 1.3em;
+    color: $text-title;
+    font-weight: $widget-title-weight;
+  }
+
+  .library-title p {
+    color: $text-primary;
+    font-size: 0.9em;
+  }
+
+  .close-library {
+    border: none;
+    background: none;
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+
+  .widget-option {
+    border: 1px solid $add-widget-border;
+    background-color: $add-widget-primary;
+    border-radius: 12px;
+    gap: 16px;
+    transition: 0.2s;
+  }
+
+  .widget-option:hover {
+    border-color: $edit-border-color;
+  }
+
+  .widget-option.added{
+    opacity: 0.6;
+  }
+
+  .widget-option h4 {
+    font-size: 1em;
+  }
+
+  .widget-option p {
+    font-size: 0.9em;
+    color: $text-title;
+  }
+
+  .add-widget-btn {
+    border: none;
+    background-color: $primary;
+    color: $text-white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: $widget-title-weight;
+    min-width: 90px;
+  }
+
+  .add-widget-btn:disabled {
+    background: $success;
+    opacity: 1;
+    color: $text-white;
+    cursor: not-allowed;
+  }
+</style>
+
+<style>
+.vue-grid-item {
     display: flex;
   }
 
@@ -386,101 +453,7 @@ function widgetExists(type) {
     height: 100%
   }
 
-   .vue-grid-item.vue-grid-placeholder {
-    background: rgba(64, 184, 175, 0.2);
-    border-radius: 14px;
-  }
-
   .vue-grid-item.dragging {
     z-index: 20;
   }
-
-  .vue-grid-item.resizing {
-    opacity: 0.9;
-  }
-
-  /*widgetbibliotek*/
-  .widget-library {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-
-  .library-widget {
-    width: 600px;
-    max-width: 90%;
-    background: white;
-    border-radius: 18px;
-    padding: 20px;
-  }
-
-  .library-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .close-library {
-    border: none;
-    background: none;
-    font-size: 1.2em;
-    cursor: pointer;
-  }
-
-  .widget-option {
-    border: 1px solid #dcdcdc;
-    background-color: #f7f7f7;
-    padding: 16px;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    transition: 0.2s;
-  }
-
-  .widget-option:hover {
-    border-color: #40b8af;
-    background: #eefcf9;
-  }
-
-  .widget-option.added{
-    opacity: 0.6;
-    background: #ececec;
-  }
-
-  .widget-option h4 {
-    margin-bottom: 4px;
-    font-size: 1em;
-  }
-
-  .widget-option p {
-    font-size: 0.9em;
-    color: #4a4a4a;
-    line-height: 1.4;
-  }
-
-  .add-widget-btn {
-    border: none;
-    background-color: #003D4F;
-    color: white;
-    padding: 10px 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    min-width: 90px;
-  }
-
-  .add-widget-btn:disabled {
-    background: #008A40;
-    opacity: 1;
-    color: white;
-    cursor: not-allowed;
-  }
-</style>
+  </style>
