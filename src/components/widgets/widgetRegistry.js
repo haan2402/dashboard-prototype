@@ -15,7 +15,8 @@ export const widgetRegistry = {
         component: AttentionRequired,
         title: "Kräver uppmärksamhet",
         background: "#FFEFF7",
-        color: "#B3003C"
+        color: "#B3003C",
+        mobileBadge: "2 aktiva"
     },
     assigned: {
         component: AssignedToMe,
@@ -31,7 +32,8 @@ export const widgetRegistry = {
     },
     notice: {
         component: NoticeBoard,
-        title: "Anslagstavla"
+        title: "Anslagstavla",
+        mobileBadge: "2 inlägg"
     },
     planning: {
         component: Planning,
@@ -44,11 +46,13 @@ export const widgetRegistry = {
     system: {
         component: SystemInfo,
         title: "Systeminfo",
-        accent: "#34565F"
+        accent: "#34565F",
+        mobileBadge: "v3.2.99"
     },
     time: {
         component: TimeReport,
-        title: "Tidrapportering"
+        title: "Tidrapportering",
+        mobileBadge: "fas fa-exclamation-triangle"
     },
     tips: {
         component: Tips,

@@ -9,6 +9,11 @@
         <!--header-->
           <button class="widget-header is-flex is-justify-content-space-between is-align-items-center pb-4" @click="toggleWidget">
             <h3 class="widget-header-title">{{ title }}</h3>
+
+            <!--mobil badge-->
+            <span v-if="props.mobileBadge && isMobile" class="mobile-badge ml-4">
+              {{ props.mobileBadge }}
+            </span>
             <span class="arrow" :class="{open: isOpen}">&gt;</span>
           </button>
 
@@ -27,7 +32,8 @@
     title: String,
     color: {type: String, default: "#ffffff"},
     textColor: {type: String, default: "#4A4A4A"},
-    accent: {type: String, default: "transparent"}
+    accent: {type: String, default: "transparent"},
+    mobileBadge: String
   });
 
   const isMobile = ref(false);
@@ -79,6 +85,12 @@
         margin: 0;
         font-weight: $widget-title-weight;
         color: var(--widget-text);
+    }
+
+    .mobile-badge {
+      font-size: 0.9em;
+      font-weight: $widget-title-weight;
+      color: var(--widget-text);
     }
 
     .arrow {

@@ -203,6 +203,7 @@ function widgetExists(type) {
       :accent="widgetRegistry[item.type].accent"
       :color="widgetRegistry[item.type].background"
       :textColor="widgetRegistry[item.type].color"
+      :mobileBadge="widgetRegistry[item.type].mobileBadge"
     >
     <component 
       :is="widgetMaps[item.type]"
@@ -440,6 +441,12 @@ function widgetExists(type) {
     opacity: 1;
     color: $text-white;
     cursor: not-allowed;
+  }
+
+  @media(max-width: 768px) {
+    .top-section {
+      justify-content: center !important;
+    }
   }
 </style>
 
