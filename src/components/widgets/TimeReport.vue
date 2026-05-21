@@ -1,6 +1,6 @@
 <!--widget för tidrapportering - enskild rapportering-->
 <template>
-  <div class="time-report">
+  <section class="time-report">
 
     <div class="time-summary mb-2">
         <span class="reported-hours is-size-5 has-text-weight-semibold">23h</span>
@@ -10,7 +10,7 @@
     <progress class="custom-progress progress mb-4" value="23" max="40">23/40</progress>
 
     <a href="#" class="report-link">Rapportera</a>
-  </div>
+</section>
 </template>
 
 <script setup></script>

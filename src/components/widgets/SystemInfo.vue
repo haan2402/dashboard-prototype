@@ -1,6 +1,6 @@
 <!--widget för systeminformation-->
 <template>
-    <div class="system-card">
+    <section class="system-card">
 
         <div class="version-tag mb-3">
             {{ version }}
@@ -10,7 +10,7 @@
             Vi har uppdaterat mbiz! <a class="link">Läs mer</a>
         </p>
 
-    </div>
+    </section>
 </template>
 
 <script setup>

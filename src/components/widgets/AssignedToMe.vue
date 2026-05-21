@@ -3,7 +3,8 @@
     <div class="assigned-card">
 
         <!--försenade-->
-        <div class="section-title p-1">Försenade</div>
+        <section>
+        <h3 class="section-title p-1">Försenade</h3>
 
         <div v-for="item in paginatedOverdue" :key="item.id" class="task-item is-flex">
 
@@ -17,8 +18,10 @@
             <div class="task-date mt-1">{{ formatDate(item.date) }}</div>
             </div>
         </div>
+        </section>
 
         <!--inget slutdatum-->
+        <section>
         <div class="section-title mt-4">Inget slutdatum</div>
 
         <div v-for="item in paginatedNoDeadline" :key="item.id" class="task-item is-flex">
@@ -32,6 +35,7 @@
             <div class="task-place">{{ item.place }}</div>
             </div>
         </div>
+        </section>
 
         <div class="button-controls is-flex is-justify-content-flex-end mt-4">
             <button class="page-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>

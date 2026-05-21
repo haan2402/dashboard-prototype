@@ -1,6 +1,6 @@
 <!--widget för kräver uppmärksamhet-->
 <template>
-    <div class="attention-card">
+    <section class="attention-card">
 
     <div v-for="item in items" :key="item.id" class="attention-item mb-4 is-flex is-align-items-center">
 
@@ -17,7 +17,7 @@
             {{ item.text }}
         </div>
     </div>
-    </div>
+</section>
 </template>
 
 <script setup>

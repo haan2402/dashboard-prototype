@@ -1,6 +1,6 @@
 <!--widget för tips om abonnemang-->
 <template>
-    <div class="tips-card">
+    <section class="tips-card">
 
         <div class="version-tag mb-3">
             <p>Abonnemang</p>
@@ -9,7 +9,7 @@
         <p class="text">
             Hantera och få överblick över era abonnemang och återkommande avtal.
         </p>
-    </div>
+    </section>
 </template>
 
 <script setup>

@@ -1,6 +1,6 @@
 <!--widget för linjediagram-->
 <template>
-    <div class="line-card is-flex is-flex-direction-column">
+    <section class="line-card is-flex is-flex-direction-column">
 
         <!--rubrik-->
         <span class="text-title mb-1">Januari - April 2026</span>
@@ -11,7 +11,7 @@
         <div class="chart-wrapper">
             <apexchart type="line" height="280" :options="chartOptions" :series="series" />
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup>

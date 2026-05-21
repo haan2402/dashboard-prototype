@@ -1,6 +1,6 @@
 <!--widget för graf-->
 <template>
-    <div class="is-flex is-flex-direction-column">
+    <section class="is-flex is-flex-direction-column">
 
         <span class="text-title mb-1">Januari - April 2026</span>
 
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-    </div>
+    </section>
 </template>
 
 <script setup>

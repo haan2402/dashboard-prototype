@@ -1,6 +1,6 @@
 <!--widget för senast besökta-->
 <template>
-  <div class="recent-card">
+  <section class="recent-card">
 
     <div v-for="item in recentItems" :key="item.title" class="recent-item is-flex is-align-items-center">
 
@@ -9,11 +9,11 @@
         </div>
 
         <div>
-            <p class="item-title">{{ item.title }}</p>
+            <h3 class="item-title">{{ item.title }}</h3>
             <p class="item-time">{{ item.time }}</p>
         </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

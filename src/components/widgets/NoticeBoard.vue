@@ -1,16 +1,16 @@
 <!--widget föranslagstavlan-->
 <template>
-  <div class="board-card">
+  <section class="board-card">
 
     <!--visar alla inlägg-->
-    <div v-for="post in paginatedPosts" :key="post.id" class="post mb-4">
+    <article v-for="post in paginatedPosts" :key="post.id" class="post mb-4">
         <div class="post-header is-flex is-justify-content-space-between is-align-items-center">
-        <div class="post-title">{{ post.title }}</div>
-        <div class="post-date">{{ formatDate(post.date) }}</div>
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-date">{{ formatDate(post.date) }}</p>
         </div>
 
-        <div class="post-text mt-1">{{ post.text }}</div>
-    </div>
+        <p class="post-text mt-1">{{ post.text }}</p>
+    </article>
 
     <!--endast "admin" kan skriva nytt inlägg-->
     <button v-if="isAdmin" class="button is-link is-small mt-2" @click="showForm =!showForm">
@@ -38,7 +38,7 @@
 
         <button class="page-btn" @click="nextPage">&gt;</button>
     </div>
-  </div>
+</section>
 </template>
 
 <script setup>

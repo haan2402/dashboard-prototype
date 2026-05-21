@@ -1,27 +1,36 @@
 <!--komponent för att kunna fälla ihop widget i mobilläge, wrappas runt komponenter i vyn-->
 <template>
-    <div class="box dashboard-widget is-flex is-flex-direction-column" 
+    <section class="box dashboard-widget is-flex is-flex-direction-column" 
         :style="{
             '--widget-color': props.color, 
             '--widget-text': props.textColor,
             '--widget-accent': props.accent}">
 
         <!--header-->
-          <button class="widget-header is-flex is-justify-content-space-between is-align-items-center pb-4" @click="toggleWidget">
-            <h3 class="widget-header-title">{{ title }}</h3>
+        <div class="widget-header is-flex is-justify-content-space-between is-align-items-center pb-4"
+            @click="toggleWidget"
+            @keydown.enter="toggleWidget"
+            @keydown.space.prevent="toggleWidget"
+            tabindex=""
+            role="button">
+
+           <h2 class="widget-header-title">{{ title }}</h2>
 
             <!--mobil badge-->
-            <span v-if="props.mobileBadge && isMobile" class="mobile-badge ml-4">
+           <div class="is-flex is-align-items-center">
+            <span v-if="props.mobileBadge && isMobile && !isOpen" class="mobile-badge mr-4">
               {{ props.mobileBadge }}
             </span>
             <span class="arrow" :class="{open: isOpen}">&gt;</span>
-          </button>
+          </div>
+
+        </div>
 
           <!--innehåll-->
           <div v-show="isOpen || !isMobile" class="widget-content">
             <slot></slot>
           </div>
-    </div>
+    </section>
 </template>
 
 <script setup>
@@ -94,7 +103,7 @@
     }
 
     .arrow {
-        font-size: 1.4em;
+        font-size: 1.5em;
         color: $text-secondary;
         transition: transform 0.2s ease;
         transform: rotate(0deg);
