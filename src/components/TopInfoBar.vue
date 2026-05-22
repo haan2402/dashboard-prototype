@@ -19,14 +19,13 @@
         </div>
 </template>
 
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
     .company-box {
         position: relative;
         gap: 10px;
         padding: 40px 50px 40px 50px;
-        color: $text-title;
-        background-color: $text-white;
+        color: var(--text-primary);
+        background-color: var(--topbar-info-bg);
     }
 
     .avatar {
@@ -36,9 +35,9 @@
         width: 60px;
         height: 60px;
         font-size: 1.5em;
-        font-weight: $font-weight-secondary;
-        background-color: $secondary;
-        color: $text-title;
+        font-weight: var(--font-weight-secondary);
+        background-color: var(--topbar-info-avatar);
+        color: var(--topbar-info-avatar-text);
     }
 
     .left-group {
@@ -46,7 +45,7 @@
     }
 
     .greeting {
-        color: $text-title;
+        color: var(--topbar-info-text);
         font-size: 1.6em;
     }
 

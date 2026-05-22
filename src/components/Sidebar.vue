@@ -38,12 +38,10 @@
       </aside>
 </template>
 
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
-
+<style scoped>
     .siderbar-section-title {
         text-transform: uppercase;
-        color: $text-secondary;
+        color: var(--text-secondary);
         margin: 16px 0 8px;
         padding-left: 10px;
         letter-spacing: 0.5px;
@@ -51,7 +49,7 @@
 
     .sidebar {
         width: 240px;
-        background-color: $surface-white;
+        background-color: var(--sidebar-bg);
         padding: 20px 0;
         box-shadow: 6px 0 18px rgba(0,0,0,0.1);
         position: relative;
@@ -60,13 +58,13 @@
 
     .sidebar-item {
         border-radius: 6px;
-        color: $text-primary;
+        color: var(--text-secondary);
     }
 
     .sidebar-item.active {
-        background-color: $sidebar-active-bg;
-        border-left: 4px solid $primary;
-        color: $primary;
+        background-color: var(--sidebar-active-bg);
+        border-left: 4px solid var(--sidebar-active-text);
+        color: var(--sidebar-active-text);
         border-radius: 0;
         width: 100%;
     }
@@ -76,6 +74,12 @@
     }
 
     @media(max-width: 768px) {
+        .sidebar {
+            display: none !important;
+        }
+    }
+
+    @media(max-width: 1024px) {
         .sidebar {
             display: none !important;
         }

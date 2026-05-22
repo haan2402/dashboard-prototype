@@ -21,21 +21,19 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
-
+<style scoped>
     .recent-item {
         gap: 20px;
         padding: 15px 0;
-        border-bottom: 1px solid $text-title;
+        border-bottom: 1px solid var(--text-title);
     }
 
     .icon-circle {
         width: 50px;
         height: 50px;
-        background-color: $secondary;
+        background-color: var(--recenty-icon-bg);
         border-radius: 50%;
-        color: $primary;
+        color: var(--recently-icon-color);
         flex-shrink: 0;
     }
 
@@ -44,14 +42,14 @@
     }
 
     .item-title {
-        font-weight: $font-weight-secondary;
-        color: $text-title;
+        font-weight: var(--font-weight-secondary);
+        color: var(--text-title);
         font-size: 0.9em;
     }
 
     .item-time {
         font-size: 0.8em;
-        color: $text-title;
+        color: var(--text-title);
         font-style: italic;
     }
     

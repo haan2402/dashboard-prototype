@@ -16,29 +16,27 @@
 <script setup></script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
-
+<style scoped>
     .reported-hours {
-        color: $text-primary;
+        color: var(--text-primary);
     }
 
     .total-hours {
-        color: $text-primary;
+        color: var(--text-primary);
         font-weight: 500;
     }
 
     .custom-progress::-webkit-progress-value {
-        background-color: $time-report-progress;
+        background-color: var(--time-report-progress);
     }
 
     .custom-progress::-moz-progress-bar {
-        background-color: $time-report-progress;
+        background-color: var(--time-report-progress);
     }
 
     .report-link {
-        color: $time-report-text;
-        font-weight: $font-weight-secondary;
+        color: var(--time-report-text);
+        font-weight: var(--font-weight-secondary);
         font-size: 0.9em;
     }
 

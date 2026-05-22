@@ -125,34 +125,33 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
 
     .section-title {
-        color: $text-title;
-        border-bottom: 2px solid #40B8AF;
+        color: var(--text-title);
+        border-bottom: 2px solid var(--assigned-border);
         font-size: 1em;
     }
 
     .task-item {
         gap: 20px;
         padding: 15px 0;
-        border-bottom: 1px solid $text-title;
+        border-bottom: 1px solid var(--text-title);
     }
 
     .task-title {
-        font-weight: $font-weight-secondary;
-        color: $text-title;
+        font-weight: var(--font-weight-secondary);
+        color: var(--text-title);
         font-size: 0.9em;
     }
 
     .task-place {
-        color: $text-primary;
+        color: var(--text-primary);
         font-size: 0.8em;
     }
 
     .task-date {
-        color: $text-primary;
+        color: var(--text-primary);
         font-size: 0.8em;
         font-style: italic;
     }
@@ -160,9 +159,9 @@
     .icon-circle {
         width: 50px;
         height: 50px;
-        background-color: $secondary;
+        background-color: var(--secondary);
         border-radius: 50%;
-        color: $primary;
+        color: var(--text-primary);
         flex-shrink: 0;
     }
 
@@ -178,12 +177,12 @@
         width: 35px;
         height: 35px;
         border-radius: 8px;
-        border: 1px solid $text-secondary;
+        border: 1px solid var(--text-secondary);
         font-size: 1.2em;
     }
 
     .page-btn.active {
-        border: 2px solid $text-primary;
+        border: 2px solid var(--text-primary);
     }
 
     .page-btn:disabled {

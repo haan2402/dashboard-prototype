@@ -124,40 +124,39 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
 
     .post {
         padding: 12px 0;
-        border-bottom: 1px solid $text-title;
+        border-bottom: 1px solid var(--text-title);
     }
 
     .post-title {
-        font-weight: $font-weight-secondary;
-        color: $text-title;
+        font-weight: var(--font-weight-secondary);
+        color: var(--text-title);
         font-size: 0.9em;
     }
 
     .post-text {
-        color: $text-primary;
+        color: var(--text-primary);
         font-size: 0.9em;
     }
 
     .post-date {
-        color: $text-primary;
+        color: var(--text-primary);
         font-size: 0.9em;
     }
 
     .button.is-link {
-        background-color: $primary;
-        color: $text-white;
+        background-color: var(--primary);
+        color: var(--text-white);
         border: none;
         font-size: 1em;
     }
 
     .button-add {
-        background-color: $success;
-        color: $text-white;
+        background-color: var(--success);
+        color: var(--text-white);
         border: none;
         font-size: 1em;
     }
@@ -170,12 +169,12 @@
         width: 35px;
         height: 35px;
         border-radius: 8px;
-        border: 1px solid $text-secondary;
+        border: 1px solid var(--text-secondary);
         font-size: 1.2em;
     }
 
     .page-btn.active {
-        border: 2px solid $text-primary;
+        border: 2px solid var(--text-primary);
     }
 
     .page-btn:disabled {
@@ -184,16 +183,16 @@
     }
 
     .form-header {
-        font-weight: $font-weight-secondary;
+        font-weight: var(--font-weight-secondary);
     }
 
     .close-btn {
         width: 35px;
         height: 35px;
         border-radius: 8px;
-        border: 2px solid $text-secondary;
+        border: 2px solid var(--text-secondary);
         font-size: 1.5em;
-        color: $text-secondary;
+        color: var(--text-secondary);
     }
 
     .new-post {
@@ -203,12 +202,12 @@
 
     .input,
     .textarea {
-        border: 1px solid $text-secondary;
+        border: 1px solid var(--text-secondary);
     }
 
     .input:focus,
     .textarea:focus {
-        border-color: $primary;
+        border-color: var(--primary);
         box-shadow: none;
     } 
     

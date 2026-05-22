@@ -16,13 +16,11 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
-
+<style scoped>
     .version-tag {
-        background-color: $tips-tag;
-        color: $tips-primary;
-        font-weight: $font-weight-secondary;
+        background-color: var(--tips-tag);
+        color: var(--tips-primary);
+        font-weight: var(--font-weight-secondary);
         border-radius: 15px;
         display: inline-block;
         padding: 6px 12px;
@@ -31,5 +29,6 @@
 
     .text {
         font-size: 0.9em;
+        color: var(--text-title);
     }
 </style>

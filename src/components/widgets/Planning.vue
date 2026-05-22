@@ -171,13 +171,12 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
 
     .planning-data {
-        color: $text-title;
+        color: var(--text-title);
         font-size: 1.1em;
-        font-weight: $widget-title-weight;
+        font-weight: var(--widget-title-weight);
     }
 
     .nav-btn {
@@ -191,32 +190,32 @@
         flex: none;
         text-align: center;
         padding: 6px 4px;
-        border: 1px solid $text-secondary;
+        border: 1px solid var(--text-secondary);
         border-radius: 8px;
         cursor: pointer;
         position: relative;
     }
 
     .day-pill:hover {
-        background-color: $secondary;
-        border-color: $planner-primary;
+        background-color: var(--secondary);
+        border-color: var(--planner-primary);
     }
 
     .day-pill.active {
-        background-color: $secondary;
-        border-color: $planner-primary;
+        background-color: var(--secondary);
+        border-color: var(--planner-primary);
         box-shadow: 0 4px 10px rgba(0,0,0,0.12);
     }
 
     .day-pill.today {
-        border: 2px solid $planner-primary;
+        border: 2px solid var(--planner-primary);
     }
 
     .day-pill.today:after {
         content: "";
         width: 7px;
         height: 7px;
-        background-color: $planner-primary;
+        background-color: var(--planner-primary);
         border-radius: 50%;
         position: absolute;
         top: 5px;
@@ -224,21 +223,21 @@
     }
 
     .day-pill.today.active {
-        background-color: $secondary;
-        border-color: $planner-primary;
+        background-color: var(--secondary);
+        border-color: var(--planner-primary);
         box-shadow: 0 4px 10px rgba(0,0,0,0.12);
     }
 
     .day-name {
         font-size: 1em;
-        color: $text-primary;
+        color: var(--text-primary);
         text-transform: capitalize;
     }
 
     .day-date {
         font-size: 1em;
-        font-weight: $font-weight-secondary;
-        color: $text-primary;
+        font-weight: var(--font-weight-secondary);
+        color: var(--text-primary);
     }
 
     .no-tasks {
@@ -247,16 +246,16 @@
     }
 
     .task-item {
-        background-color: $surface-white;
+        background-color: var(--widget-bg);
         margin-top: 10px;
         border-radius: 0 10px 10px 0;
-        border: 1px solid $text-secondary;
+        border: 1px solid var(--text-secondary);
         overflow: hidden;
     }
 
     .left-bar {
         width: 5px;
-        background-color: $planner-primary;
+        background-color: var(--planner-primary);
         flex-shrink: 0;
     }
 
@@ -266,20 +265,20 @@
     }
 
     .task-title {
-        font-weight: $font-weight-secondary;
-        color: $text-title;
+        font-weight: var(--font-weight-secondary);
+        color: var(--text-title);
         font-size: 0.9em;
     }
 
     .task-address {
         font-size: 0.9em;
-        color: $text-primary;
+        color: var(--text-primary);
         
     }
 
     .task-time {
-        background-color: $secondary;
-        border: 1px solid $planner-primary;
+        background-color: var(--secondary);
+        border: 1px solid var(--planner-primary);
         padding: 4px 8px;
         border-radius: 12px;
         font-size: 0.9em;
@@ -288,7 +287,7 @@
 
     .task-coworker {
         gap: 10px;
-        color: $text-primary;
+        color: var(--text-primary);
         font-size: 0.9em;
     }
 

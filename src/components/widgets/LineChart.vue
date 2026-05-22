@@ -34,7 +34,8 @@
 
         zoom: {
             enabled: false
-        }
+        },
+        foreColor: "var(--text-title)"
     },
 
     xaxis: {
@@ -52,7 +53,7 @@
         width: 3
     },
 
-    colors: ["#003D4F"],
+    colors: ["var(--line-chart-color)"],
 
     dataLabels: {
         enabled: false
@@ -60,10 +61,11 @@
 
     grid: {
         strokeDashArray: 4,
-        borderColor: "#eaeaea"
+        borderColor: "var(--line-chart-border)"
     },
 
     tooltip: {
+        theme: document.documentElement.getAttribute("dark-theme") ? "dark" : "light",
         y: {
             formatter: (val) => `${val}%`
         }
@@ -77,14 +79,13 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
 
     .divider {
         margin: 12px 0;
         border: none;
         height: 1px;
-        background: $text-title;
+        background: var(--text-title);
     }
 
     .chart-wrapper {

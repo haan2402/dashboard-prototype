@@ -38,15 +38,14 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
 
     .attention-card {
-        background-color: $attention-primary;
+        background-color: var(--attention-primary);
     }
 
     .attention-item {
-        background-color: $surface-white;
+        background-color: var(--attention-item-bg);
         border-radius: 0 12px 12px 0;
     }
 
@@ -62,7 +61,7 @@
 
     .text {
         padding: 10px 10px 10px 0;
-        color: $text-title;
+        color: var(--text-title);
         font-size: 0.9em;
     }
     

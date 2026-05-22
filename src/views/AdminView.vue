@@ -254,21 +254,25 @@ function widgetExists(type) {
 </div>
 </template>
 
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
   .mobile-stack {
     gap: 15px;
   }
 
   /*styling redigeringsläge*/
   .edit-banner {
-    background-color: $edit-banner-primary;
-    border: 2px solid $edit-banner-border;
+    background-color: var(--edit-banner-primary);
+    border: 2px solid var(--edit-banner-border);
     border-radius: 14px;
   }
 
   .edit-banner h3 {
     font-size: 1.1em;
+    color: var(--editbanner-text);
+  }
+
+  .edit-banner p {
+    color: var(--editbanner-text);
   }
 
   .edit-actions {
@@ -281,24 +285,24 @@ function widgetExists(type) {
     border: none;
     border-radius: 10px;
     padding: 8px 15px;
-    font-weight: $widget-title-weight;
-    color: $surface-white;
+    font-weight: var(--widget-title-weight);
+    color: var(--text-white);
   }
 
   .primary-btn {
-    background-color: $success;
+    background-color: var(--success);
   }
 
   .secondary-btn {
-    background-color: $time-report-progress;
+    background-color: var(--time-report-progress);
   }
 
   .edit-btn {
-    background-color: $primary;
+    background-color:var(--primary);
   }
 
   .edit-btn.active {
-    background: $delete-primary;
+    background: var(--delete-primary);
   }
 
   .widget-wrapper {
@@ -316,7 +320,7 @@ function widgetExists(type) {
     content: "";
     position: absolute;
     inset: 0;
-    border: 2px dashed $edit-border-color;
+    border: 2px dashed var(--edit-border-color);
     border-radius: 16px;
     pointer-events: none;
   }
@@ -330,7 +334,7 @@ function widgetExists(type) {
     top: 10px;
     right: 10px;
     background: rgba(0,0,0,0.7);
-    color: $surface-white;
+    color: var(--text-white);
     padding: 6px 10px;
     border-radius: 10px;
     font-size: 0.8em;
@@ -344,28 +348,28 @@ function widgetExists(type) {
     width: 28px;
     height: 28px;
     border-radius: 10px;
-    background-color: $delete-primary;
-    color: $surface-white;
-    font-weight: $widget-title-weight;
+    background-color: var(--delete-primary);
+    color: var(--text-white);
+    font-weight: var(--widget-title-weight);
     cursor: pointer;
     z-index: 20;
   }
 
   .add-widget-card {
     height: 160px;
-    border: 2px dashed $add-widget-border;
-    background: $add-widget-primary;
+    border: 2px dashed var(--add-widget-border);
+    background: var(--add-widget-primary);
     border-radius: 16px;
-    color: $text-title;
-    font-weight: $widget-title-weight;
+    color: var(--text-title);
+    font-weight: var(--widget-title-weigh);
     cursor: pointer;
     transition: 0.2s;
   }
 
   .add-widget-card:hover {
-    background: $add-widget-primary;
-    border-color: $edit-border-color;
-    color: $edit-border-color;
+    background: var(--add-widget-primary);
+    border-color: var(--edit-border-color);
+    color: var(--edit-border-color);
   }
 
   /*widgetbibliotek*/
@@ -379,23 +383,23 @@ function widgetExists(type) {
   .library-widget {
     width: 600px;
     max-width: 90%;
-    background: $text-white;
+    background: var(--widget-library);
     border-radius: 18px;
   }
 
   .library-header {
     gap: 20px;
-    border-bottom: 1px solid $text-title;
+    border-bottom: 1px solid var(--text-title);
   }
 
   .library-title h3 {
     font-size: 1.3em;
-    color: $text-title;
-    font-weight: $widget-title-weight;
+    color: var(--text-title);
+    font-weight: var(--widget-title-weight);
   }
 
   .library-title p {
-    color: $text-primary;
+    color: var(--text-title);
     font-size: 0.9em;
   }
 
@@ -407,15 +411,15 @@ function widgetExists(type) {
   }
 
   .widget-option {
-    border: 1px solid $add-widget-border;
-    background-color: $add-widget-primary;
+    border: 1px solid var(--add-widget-border);
+    background-color: var(--add-widget-primary);
     border-radius: 12px;
     gap: 16px;
     transition: 0.2s;
   }
 
   .widget-option:hover {
-    border-color: $edit-border-color;
+    border-color: var(--edit-border-color);
   }
 
   .widget-option.added{
@@ -424,28 +428,29 @@ function widgetExists(type) {
 
   .widget-option h4 {
     font-size: 1em;
+    color: var(--text-title);
   }
 
   .widget-option p {
     font-size: 0.9em;
-    color: $text-title;
+    color: var(--text-title);
   }
 
   .add-widget-btn {
     border: none;
-    background-color: $primary;
-    color: $text-white;
+    background-color: var(--primary);
+    color: var(--text-white);
     padding: 10px 14px;
     border-radius: 10px;
     cursor: pointer;
-    font-weight: $widget-title-weight;
+    font-weight: var(--widget-title-weight);
     min-width: 90px;
   }
 
   .add-widget-btn:disabled {
-    background: $success;
+    background: var(--success);
     opacity: 1;
-    color: $text-white;
+    color: var(--text-white);
     cursor: not-allowed;
   }
 

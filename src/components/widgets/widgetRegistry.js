@@ -14,8 +14,8 @@ export const widgetRegistry = {
     attention: {
         component: AttentionRequired,
         title: "Kräver uppmärksamhet",
-        background: "#FFEFF7",
-        color: "#B3003C",
+        background: "var(--attention-primary)",
+        color: "var(--text-attention)",
         mobileBadge: "2 aktiva"
     },
     assigned: {

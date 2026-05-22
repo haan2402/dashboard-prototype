@@ -68,13 +68,14 @@
         animations: {
             enabled: true,
             speed: 300
-        }
+        },
+        foreColor: "var(--text-title)"
     },
 
     colors: [
-        "#008A40",
-        "#FFE15C",
-        "#AAD6FF"
+        "var(--billing-chart-green)",
+        "var(--billing-chart-yellow)",
+        "var(--billing-chart-blue)"
     ],
 
     labels: [
@@ -93,7 +94,7 @@
 
     stroke: {
         width: 5,
-        colors: ["#ffffff"]
+        colors: ["var(--billing-chart-stroke)"]
     },
 
     tooltip: {
@@ -126,13 +127,12 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
     .divider {
         margin: 12px 0;
         border: none;
         height: 1px;
-        background: $text-title;
+        background: var(--text-title);
     }
 
     .legend {
@@ -143,7 +143,7 @@
     .legend-item {
         gap: 10px;
         font-size: 0.95em;;
-        color: $text-title;
+        color: var(--text-title);
     }
 
     .dot {
@@ -153,25 +153,25 @@
     }
 
     .billed {
-        background-color: $success;
+        background-color: var(--billing-chart-green);
     }
 
     .unbilled {
-        background-color: $billing-chart-yellow;
+        background-color: var(--billing-chart-yellow);
     }
 
     .ongoing {
-        background-color: $billing-chart-blue;
+        background-color: var(--billing-chart-blue);
     }
 
     .total-label {
         font-size: 1em;
-        color: $text-title;
+        color: var(--text-title);
     }
 
     .total-amount {
         font-size: 1.3em;
-        color: $text-title;
+        color: var(--text-title);
     }
     
 </style>

@@ -39,8 +39,8 @@
   //props till komponent 
   const props = defineProps({
     title: String,
-    color: {type: String, default: "#ffffff"},
-    textColor: {type: String, default: "#4A4A4A"},
+    color: {type: String, default: "var(--widget-bg)"},
+    textColor: {type: String, default: "var(--text-title)"},
     accent: {type: String, default: "transparent"},
     mobileBadge: String
   });
@@ -71,8 +71,7 @@
 </script>
 
 <!--kompletterande styling-->
-<style scoped lang="scss">
-@use "@/assets/styles/_variables.scss" as*;
+<style scoped>
 
     .dashboard-widget {
         background: var(--widget-color);
@@ -90,21 +89,21 @@
     }
 
     .widget-header-title {
-        font-size: $widget-title-size;
+        font-size: var(--widget-title-size);
         margin: 0;
-        font-weight: $widget-title-weight;
+        font-weight: var(--widget-title-weight);
         color: var(--widget-text);
     }
 
     .mobile-badge {
       font-size: 0.9em;
-      font-weight: $widget-title-weight;
+      font-weight: var(--widget-title-weight);
       color: var(--widget-text);
     }
 
     .arrow {
         font-size: 1.5em;
-        color: $text-secondary;
+        color: var(--text-secondary);
         transition: transform 0.2s ease;
         transform: rotate(0deg);
 
@@ -113,7 +112,7 @@
         }
     }
 
-    //desktop
+    /*desktop*/
     @media (min-width: 769px) {
         .arrow {
             display: none;
