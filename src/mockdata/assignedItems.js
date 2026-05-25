@@ -4,21 +4,21 @@ export const assignedItems = {
     overdue: [
         {
         id: 1,
-        title: "Inbrottslarm - serviceunderhåll (27)",
-        place: "Byaskolan (8)",
+        title: "Inbrottslarm - serviceunderhåll",
+        place: "Byaskolan",
         date: "2026-04-20",
         icon: "fas fa-file-lines"
     },
     {
         id: 2,
-        title: "Driftsättning etapp 1 (37)",
+        title: "Driftsättning etapp 1",
         place: "Industribyggnaden",
         date: "2026-04-21",
         icon: "fas fa-file-lines"
     },
     {
         id: 3,
-        title: "Inbrottslarm - serviceunderhåll (52)",
+        title: "Inbrottslarm - serviceunderhåll",
         place: "Byaskolan",
         date: "2026-04-15",
         icon: "fas fa-file-lines"
@@ -27,7 +27,7 @@ export const assignedItems = {
     noDeadline: [
         {
         id: 4,
-        title: "Inbrottslarm (25)",
+        title: "Inbrottslarm",
         place: "Centrumskolan",
         date: null,
         icon: "fas fa-file-lines"
