@@ -1,4 +1,4 @@
-<!--widget föranslagstavlan-->
+<!--widget för anslagstavlan-->
 <template>
   <section class="board-card">
 
@@ -12,50 +12,41 @@
         <p class="post-text mt-1">{{ post.text }}</p>
     </article>
 
-    <!--endast "admin" kan skriva nytt inlägg-->
-    <button v-if="isAdmin" class="button is-link is-small mt-2" @click="showForm =!showForm">
-        Nytt inlägg
-    </button>
-
-    <div v-if="showForm && isAdmin" class="new-post">
-        <div class="form-header is-flex is-justify-content-space-between is-align-items-center mb-2">
-            <span>Nytt inlägg</span>
-            <button class="close-btn" @click="showForm = false">x</button>
-        </div>
-        <input  v-model="newTitle" class="input mb-2" placeholder="Titel">
-
-        <textarea v-model="newText" class="textarea" placeholder="Text"></textarea>
-
-        <button class="button button-add is-small mt-4" @click="addPost">Lägg till</button>
-    </div>
-
-    <div class="button-controls is-flex is-justify-content-flex-end mt-6">
-        <button class="page-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
-
-        <button v-for="page in totalPages" :key="page" class="page-btn" :class="{active: currentPage === page}" @click="currentPage = page">
-            {{page}}
+    <div class="board-controls is-flex is-justify-content-space-between is-align-items-center mt-6">
+        
+        <!--endast "admin" ser denna knapp-->
+        <div class="left-btn">
+        <button v-if="isAdmin" class="button add-post-btn">
+            Nytt inlägg
         </button>
+        </div>
 
-        <button class="page-btn" @click="nextPage">&gt;</button>
+        <!--knappar för att byta sida-->
+        <div class="button-controls is-flex">
+            <button class="page-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
+
+            <button v-for="page in totalPages" :key="page" class="page-btn" :class="{active: currentPage === page}" @click="currentPage = page">
+                {{page}}
+            </button>
+
+            <button class="page-btn" @click="nextPage">&gt;</button>
+        </div>
     </div>
 </section>
 </template>
 
 <script setup>
-    import { ref, computed, onMounted } from 'vue';
+    import { ref, computed, onMounted} from 'vue';
     import { noticeBoardItems } from '@/mockdata/noticeBoardItem';
 
     //props för att avgöra om användaren är admin eller inte och om formuläret visas i vyn 
     defineProps({isAdmin: Boolean})
 
-    //states för formulärets synlighet
-    const showForm = ref(false);
-    const newTitle = ref('');
-    const newText = ref('');
-
     //states för pagination och mobilanpassning 
     const currentPage = ref(1);
     const isMobile = ref(false);
+
+    const posts = ref([...noticeBoardItems]);
 
     //vid mounting kontrolleras skärmstorlek och uppdateras vid resize 
     onMounted(() => {
@@ -85,33 +76,6 @@
 
     function prevPage() {
         if(currentPage.value > 1) currentPage.value--
-    }
-
-    //hämtar data från localStorage eller mockdata
-    const savedPosts = localStorage.getItem('noticeBoard');
-    const posts = ref(savedPosts ? JSON.parse(savedPosts) : noticeBoardItems);
-
-    //sparar inlägg i localStorage
-    function savePost() {
-        localStorage.setItem('noticeBoard', JSON.stringify(posts.value));
-    }
-
-    //lägger till nytt inlägg
-    function addPost() {
-        if(!newTitle.value || !newText.value) return;
-
-        posts.value.unshift({
-            id: Date.now(),
-            title: newTitle.value,
-            text: newText.value,
-            date: new Date()
-        })
-
-        savePost();
-
-        newTitle.value = '';
-        newText.value = '';
-        showForm.value = false;
     }
 
     //formaterar datum
@@ -147,22 +111,30 @@
         font-size: 0.9em;
     }
 
-    .button.is-link {
-        background-color: var(--primary);
-        color: var(--text-white);
-        border: none;
-        font-size: 1em;
+    .board-controls {
+        gap: 12px;
     }
 
-    .button-add {
-        background-color: var(--success);
-        color: var(--text-white);
-        border: none;
-        font-size: 1em;
+    .left-btn {
+        display: flex;
+        align-items: center;
     }
 
     .button-controls {
-        gap: 15px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .add-post-btn {
+        height: 35px;
+        padding: 0 14px;
+        border-radius: 8px;
+        border: none;
+        background-color: var(--primary);
+        color: var(--text-white);
+        font-size: 0.9em;
+        font-weight: var(--font-weight-secondary);
     }
 
     .page-btn {
@@ -171,44 +143,5 @@
         border-radius: 8px;
         border: 1px solid var(--text-secondary);
         font-size: 1.2em;
-    }
-
-    .page-btn.active {
-        border: 2px solid var(--text-primary);
-    }
-
-    .page-btn:disabled {
-        opacity: 0.4;
-        cursor: default;
-    }
-
-    .form-header {
-        font-weight: var(--font-weight-secondary);
-    }
-
-    .close-btn {
-        width: 35px;
-        height: 35px;
-        border-radius: 8px;
-        border: 2px solid var(--text-secondary);
-        font-size: 1.5em;
-        color: var(--text-secondary);
-    }
-
-    .new-post {
-        margin-top: 12px;
-        padding-top: 10px;
-    }
-
-    .input,
-    .textarea {
-        border: 1px solid var(--text-secondary);
-    }
-
-    .input:focus,
-    .textarea:focus {
-        border-color: var(--primary);
-        box-shadow: none;
-    } 
-    
+    }    
 </style>

@@ -63,7 +63,7 @@ const defaultLayout = [
 
   {x: 0, y: 4, w: 4, h: 8,i: 'planning', type: 'planning', static: false},
   {x: 4, y: 4, w: 4, h: 17, i: 'assigned', type: 'assigned', static: false},
-  {x: 8, y: 4, w: 4, h: 8,i: 'notice', type: 'notice', static: true},
+  {x: 8, y: 4, w: 4, h: 7,i: 'notice', type: 'notice', static: true},
 
   {x: 0, y: 10, w: 4, h: 8, i: 'recently', type: 'recently', static: false},
 ]

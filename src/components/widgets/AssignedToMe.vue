@@ -37,7 +37,7 @@
         </div>
         </section>
 
-        <div class="button-controls is-flex is-justify-content-flex-end mt-4">
+        <div class="button-controls is-flex is-justify-content-flex-end mt-6">
             <button class="page-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
 
             <button v-for="page in totalPages" :key="page" class="page-btn" :class="{active: currentPage === page}" @click="currentPage = page">

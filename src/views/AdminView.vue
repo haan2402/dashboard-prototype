@@ -61,7 +61,7 @@ const defaultLayout = [
   {x: 8, y: 0, w: 4, h: 4, i: 'system', type: 'system', static: true},
   {x: 0, y: 4, w: 4, h: 8, i: 'recently', type: 'recently', static: false},
   {x: 4, y: 4, w: 4, h: 8, i: 'planning', type: 'planning', static: false},
-  {x: 8, y: 4, w: 4, h: 9, i: 'notice', type: 'notice', static: true},
+  {x: 8, y: 4, w: 4, h: 7, i: 'notice', type: 'notice', static: true},
   {x: 0, y: 10, w: 4, h: 9, i: 'line', type: 'line', static: false},
   {x: 4, y: 14, w: 4, h: 12, i: 'billing', type: 'billing', static: false},
 ]

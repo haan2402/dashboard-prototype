@@ -12,11 +12,5 @@ export const noticeBoardItems = [
         title: "Personalfika - 18 april kl 09",
         text: "Gemensamt fika i fikarummet, avdelningen bjuder.",
         date: "2026-04-05"
-    },
-    {
-        id: 3,
-        title: "Ny rutin för arbetsordrar",
-        text: "Från och med nästa vecka ska alla arbetsordrar markeras som avslutade efter utfört arbete",
-        date: "2026-04-04"
-    },
+    }
 ]
