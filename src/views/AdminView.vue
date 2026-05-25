@@ -10,7 +10,7 @@ import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import Tips from '@/components/widgets/Tips.vue';
 import DashboardWidget from '@/components/DashboardWidget.vue';
 import { widgetRegistry } from '@/components/widgets/widgetRegistry';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, compile, computed } from 'vue';
 import {GridLayout, GridItem } from 'vue-grid-layout-v3';
 
 const user = { role: "admin" }
@@ -35,6 +35,16 @@ const widgetMaps = {
   system: SystemInfo,
   notice: NoticeBoard
 }
+
+//ordning av widgets i mobil 
+const mobileOrder = ['system', 'notice', 'attention', 'planning', 'recently', 'billing', 'line', 'tips']
+
+//sorterad layout för mobilenhet
+const mobileLayout = computed(() => {
+  return [...layout.value].sort((a, b) => {
+    return mobileOrder.indexOf(a.type) - mobileOrder.indexOf(b.type)
+  })
+})
 
 const availableWidgets = [
   { type: 'attention', title: 'Kräver uppmärksamhet', description: 'Uppgifter som kräver uppmärksamhet' },
@@ -61,7 +71,7 @@ const layoutVersion = '1'
 
 //växlar mellan desktop och mobilläge beroende på skärmstorlek 
 const checkScreen = () => {
-  isMobile.value = window.innerWidth <= 768
+  isMobile.value = window.innerWidth <= 1024
 }
 
 //hämtar sparad layout från localStorage när sidan laddas 
@@ -203,13 +213,14 @@ function widgetExists(type) {
 
 <!--mobilvy-->
 <div v-else class="mobile-stack is-flex is-flex-direction-column">
-  <div v-for="item in layout" :key="item.i">
+  <div v-for="item in mobileLayout" :key="item.i">
     <DashboardWidget
       :title="widgetRegistry[item.type].title"
       :accent="widgetRegistry[item.type].accent"
       :color="widgetRegistry[item.type].background"
       :textColor="widgetRegistry[item.type].color"
       :mobileBadge="widgetRegistry[item.type].mobileBadge"
+      :defaultOpen="widgetRegistry[item.type].defaultOpen"
     >
     <component 
       :is="widgetMaps[item.type]"
@@ -454,7 +465,7 @@ function widgetExists(type) {
     cursor: not-allowed;
   }
 
-  @media(max-width: 768px) {
+  @media(max-width: 1024px) {
     .top-section {
       justify-content: center !important;
     }

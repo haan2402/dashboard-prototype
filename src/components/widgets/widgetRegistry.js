@@ -16,46 +16,56 @@ export const widgetRegistry = {
         title: "Kräver uppmärksamhet",
         background: "var(--attention-primary)",
         color: "var(--text-attention)",
-        mobileBadge: "2 aktiva"
+        mobileBadge: "2 aktiva",
+        defaultOpen: false
     },
     assigned: {
         component: AssignedToMe,
-        title: "Tilldelat mig"
+        title: "Tilldelat mig",
+        defaultOpen: true
     },
     billing: {
         component: BillingChart,
-        title: "Fakturering"
+        title: "Fakturering",
+        defaultOpen: false
     },
     line: {
         component: LineChart,
-        title: "Debiteringsgrad"
+        title: "Debiteringsgrad",
+        defaultOpen: false
     },
     notice: {
         component: NoticeBoard,
         title: "Anslagstavla",
-        mobileBadge: "2 inlägg"
+        mobileBadge: "2 inlägg",
+        defaultOpen: false
     },
     planning: {
         component: Planning,
-        title: "Planering"
+        title: "Planering",
+        defaultOpen: true
     },
     recently: {
         component: RecentlyVisited,
-        title: "Senast besökta"
+        title: "Senast besökta",
+        defaultOpen: false
     },
     system: {
         component: SystemInfo,
         title: "Systeminfo",
         accent: "#34565F",
-        mobileBadge: "v3.2.99"
+        mobileBadge: "v3.2.99",
+        defaultOpen: false
     },
     time: {
         component: TimeReport,
-        title: "Tidrapportering"
+        title: "Tidrapportering",
+        defaultOpen: false
     },
     tips: {
         component: Tips,
         title: "Tips",
-        accent: "#93136B"
+        accent: "#93136B",
+        defaultOpen: false
     }
 }

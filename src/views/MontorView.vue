@@ -10,7 +10,7 @@ import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import TimeReport from '@/components/widgets/TimeReport.vue';
 import { widgetRegistry } from '@/components/widgets/widgetRegistry';
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import {GridLayout, GridItem } from 'vue-grid-layout-v3';
 
 const user = {
@@ -36,6 +36,16 @@ const widgetMaps = {
   notice: NoticeBoard,
   assigned: AssignedToMe
 }
+
+//ordning av widgets i mobil 
+const mobileOrder = ['system', 'notice', 'time', 'attention', 'planning', 'assigned', 'recently']
+
+//sorterad layout för mobilenhet
+const mobileLayout = computed(() => {
+  return [...layout.value].sort((a, b) => {
+    return mobileOrder.indexOf(a.type) - mobileOrder.indexOf(b.type)
+  })
+})
 
 const availableWidgets = [
   { type: 'attention', title: 'Kräver uppmärksamhet', description: 'Uppgifter som kräver uppmärksamhet' },
@@ -205,13 +215,14 @@ function widgetExists(type) {
 
 <!--mobilvy-->
 <div v-else class="mobile-stack is-flex is-flex-direction-column">
-  <div v-for="item in layout" :key="item.i">
+  <div v-for="item in mobileLayout" :key="item.i">
     <DashboardWidget
       :title="widgetRegistry[item.type].title"
       :accent="widgetRegistry[item.type].accent"
       :color="widgetRegistry[item.type].background"
       :textColor="widgetRegistry[item.type].color"
       :mobileBadge="widgetRegistry[item.type].mobileBadge"
+      :defaultOpen="widgetRegistry[item.type].defaultOpen"
     >
     <component 
       :is="widgetMaps[item.type]"

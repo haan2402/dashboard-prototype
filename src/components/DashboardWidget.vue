@@ -42,15 +42,16 @@
     color: {type: String, default: "var(--widget-bg)"},
     textColor: {type: String, default: "var(--text-title)"},
     accent: {type: String, default: "transparent"},
-    mobileBadge: String
+    mobileBadge: String,
+    defaultOpen: { type: Boolean, default: false }
   });
 
   const isMobile = ref(false);
-  const isOpen = ref(false);
+  const isOpen = ref(props.defaultOpen);
 
   //kollar att det är mobilläge
   const checkScreen = () => {
-    isMobile.value = window.innerWidth <= 768;
+    isMobile.value = window.innerWidth <= 1024;
   }
 
   onMounted(() => {
@@ -113,7 +114,7 @@
     }
 
     /*desktop*/
-    @media (min-width: 769px) {
+    @media (min-width: 1025px) {
         .arrow {
             display: none;
         }
