@@ -58,14 +58,14 @@ const availableWidgets = [
 //standard layout, används om ingen sparad layout finns, eller när layout återställs 
 const defaultLayout = [
   {x: 0, y: 0, w: 4, h: 4, i: 'time', type: 'time', static: false},
-  {x: 4, y: 0, w: 4, h: 4, i: 'attention', type: 'attention', static: true},
+  {x: 4, y: 0, w: 4, h: 3, i: 'attention', type: 'attention', static: true},
   {x: 8, y: 0, w: 4, h: 4, i: 'system', type: 'system', static: true},
 
-  {x: 0, y: 4, w: 4, h: 8,i: 'planning', type: 'planning', static: false},
+  {x: 0, y: 4, w: 4, h: 9, i: 'planning', type: 'planning', static: false},
   {x: 4, y: 4, w: 4, h: 17, i: 'assigned', type: 'assigned', static: false},
-  {x: 8, y: 4, w: 4, h: 7,i: 'notice', type: 'notice', static: true},
+  {x: 8, y: 4, w: 4, h: 7, i: 'notice', type: 'notice', static: true},
 
-  {x: 0, y: 10, w: 4, h: 8, i: 'recently', type: 'recently', static: false},
+  {x: 0, y: 10, w: 4, h: 7, i: 'recently', type: 'recently', static: false},
 ]
 
 //versionshantering för sparad layout, om layout strukturen ändras kan versionen uppdateras 
@@ -116,7 +116,7 @@ function addWidget(type) {
   //hittar längst ner i layouten och placerar widget där
   const maxY = Math.max(...layout.value.map(item => item.y + item.h), 0)
 
-  layout.value.push({x: 0, y: maxY, w: 4, h: 5, i: type, type, static: false})
+  layout.value.push({x: 0, y: maxY, w: 4, h: 7, i: type, type, static: false})
 
   showWidgets.value = false
 }

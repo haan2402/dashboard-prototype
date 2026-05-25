@@ -15,14 +15,14 @@
     <div class="board-controls is-flex is-justify-content-space-between is-align-items-center mt-6">
         
         <!--endast "admin" ser denna knapp-->
-        <div class="left-btn">
+        <div class="left-btn is-flex is-align-items-center">
         <button v-if="isAdmin" class="button add-post-btn">
             Nytt inlägg
         </button>
         </div>
 
         <!--knappar för att byta sida-->
-        <div class="button-controls is-flex">
+        <div class="button-controls is-flex is-justify-content-flex-end">
             <button class="page-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
 
             <button v-for="page in totalPages" :key="page" class="page-btn" :class="{active: currentPage === page}" @click="currentPage = page">
@@ -115,14 +115,7 @@
         gap: 12px;
     }
 
-    .left-btn {
-        display: flex;
-        align-items: center;
-    }
-
     .button-controls {
-        display: flex;
-        justify-content: flex-end;
         gap: 10px;
     }
 
