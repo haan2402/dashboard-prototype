@@ -10,7 +10,7 @@ import SystemInfo from '@/components/widgets/SystemInfo.vue';
 import Tips from '@/components/widgets/Tips.vue';
 import DashboardWidget from '@/components/DashboardWidget.vue';
 import { widgetRegistry } from '@/components/widgets/widgetRegistry';
-import { ref, onMounted, compile, computed } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import {GridLayout, GridItem } from 'vue-grid-layout-v3';
 
 const user = { role: "admin" }
@@ -56,12 +56,12 @@ const availableWidgets = [
 
 //standard layout, används om ingen sparad layout finns, eller när layout återställs 
 const defaultLayout = [
-  {x: 0, y: 0, w: 4, h: 8, i: 'attention', type: 'attention', static: false},
+  {x: 0, y: 0, w: 4, h: 9, i: 'attention', type: 'attention', static: false},
   {x: 4, y: 0, w: 4, h: 4, i: 'tips', type: 'tips', static: true},
   {x: 8, y: 0, w: 4, h: 4, i: 'system', type: 'system', static: true},
   {x: 0, y: 4, w: 4, h: 7, i: 'recently', type: 'recently', static: false},
   {x: 4, y: 4, w: 4, h: 9, i: 'planning', type: 'planning', static: false},
-  {x: 8, y: 4, w: 4, h: 7, i: 'notice', type: 'notice', static: true},
+  {x: 8, y: 4, w: 4, h: 8, i: 'notice', type: 'notice', static: true},
   {x: 0, y: 10, w: 4, h: 9, i: 'line', type: 'line', static: false},
   {x: 4, y: 14, w: 4, h: 12, i: 'billing', type: 'billing', static: false},
 ]

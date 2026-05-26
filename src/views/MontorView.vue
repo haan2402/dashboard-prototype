@@ -58,7 +58,7 @@ const availableWidgets = [
 //standard layout, används om ingen sparad layout finns, eller när layout återställs 
 const defaultLayout = [
   {x: 0, y: 0, w: 4, h: 4, i: 'time', type: 'time', static: false},
-  {x: 4, y: 0, w: 4, h: 3, i: 'attention', type: 'attention', static: true},
+  {x: 4, y: 0, w: 4, h: 3, i: 'attention', type: 'attention', static: false},
   {x: 8, y: 0, w: 4, h: 4, i: 'system', type: 'system', static: true},
 
   {x: 0, y: 4, w: 4, h: 9, i: 'planning', type: 'planning', static: false},
