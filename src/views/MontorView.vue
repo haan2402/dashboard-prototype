@@ -58,7 +58,7 @@ const availableWidgets = [
 //standard layout, används om ingen sparad layout finns, eller när layout återställs 
 const defaultLayout = [
   {x: 0, y: 0, w: 4, h: 4, i: 'time', type: 'time', static: false},
-  {x: 4, y: 0, w: 4, h: 3, i: 'attention', type: 'attention', static: false},
+  {x: 4, y: 0, w: 4, h: 4, i: 'attention', type: 'attention', static: false},
   {x: 8, y: 0, w: 4, h: 4, i: 'system', type: 'system', static: true},
 
   {x: 0, y: 4, w: 4, h: 9, i: 'planning', type: 'planning', static: false},
@@ -170,8 +170,8 @@ function widgetExists(type) {
       :col-num="12"
       :row-height="40"
       :margin="[12,12]"
-      :is-draggable="isEditing"
-      :is-resizable="isEditing"
+      :is-draggable="isEditing && draggable"
+      :is-resizable="isEditing && resizable"
       :vertical-compact="true"
       :use-css-transforms="true"
       :auto-size="true"
